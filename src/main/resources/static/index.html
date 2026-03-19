@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index-styles.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Image <span>Analyzer</span></h1>
+        <p class="subtitle">Upload · Describe · Analyze</p>
+    </header>
+
+    <!-- Upload Card -->
+    <div class="card">
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-zone-icon">⬆</div>
+            <div class="drop-zone-text">
+                Drop an image here or <strong>click to browse</strong><br>
+                PNG, JPG, WEBP
+            </div>
+            <input type="file" id="fileInput" accept="image/*">
+            <div class="preview-wrapper">
+                <img class="preview-img" id="previewImg" alt="Preview">
+                <div class="file-meta">
+                    <span id="fileName"></span>
+                    <button class="remove-btn" id="removeBtn">remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message + Config Card -->
+    <div class="card">
+        <div class="config-row">
+            <div class="field">
+                <label for="baseUrl">API Base URL</label>
+                <input type="text" id="baseUrl" value="http://localhost:8080" placeholder="http://localhost:8080">
+            </div>
+        </div>
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="What is in this image?"></textarea>
+    </div>
+
+    <!-- Submit -->
+    <button class="submit-btn" id="submitBtn" disabled>Analyze Image</button>
+
+    <!-- Annotated Image -->
+    <div class="card annotated-card" id="annotatedCard">
+        <div class="response-label">Detected Risks</div>
+        <div class="annotated-wrapper" id="annotatedWrapper">
+            <img class="annotated-img" id="annotatedImg" alt="Annotated">
+            <!-- bounding boxes injected here by JS -->
+        </div>
+        <div class="box-legend" id="boxLegend"></div>
+    </div>
+
+    <!-- Response -->
+    <div class="card response-card" id="responseCard">
+        <div class="response-label">Response</div>
+        <div class="response-body" id="responseBody"></div>
+    </div>
+
+    <footer>Sends imagePath to POST /analyze</footer>
+</div>
+
+<script src="/javascript/index-code.js"></script>
+
+</body>
+</html>
