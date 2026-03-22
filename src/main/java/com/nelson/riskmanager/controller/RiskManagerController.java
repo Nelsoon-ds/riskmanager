@@ -1,21 +1,27 @@
 package com.nelson.riskmanager.controller;
 
+import com.nelson.riskmanager.service.DocumentIngestionService;
 import com.nelson.riskmanager.service.RiskManagerService;
+import org.springframework.ai.document.Document;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Objects;
 
 @RestController
 public class RiskManagerController {
 
     private final RiskManagerService riskManagerService;
+    private final DocumentIngestionService documentIngestionService;
 
-    public RiskManagerController(RiskManagerService riskManagerService) {
+    public RiskManagerController(RiskManagerService riskManagerService,
+                                 DocumentIngestionService documentIngestionService) {
         this.riskManagerService = riskManagerService;
+        this.documentIngestionService = documentIngestionService;
     }
 
 
@@ -29,6 +35,27 @@ public class RiskManagerController {
                 "4. A brief description of the risk and recommended action\n" +
                 "\n" +
                 "Be as precise as possible with the bounding box coordinates.", imagePath);
+    }
+
+    @PostMapping("/ingest")
+    public String ingest(@RequestParam String path) throws IOException {
+        Path target = Path.of(path);
+        if (Files.isDirectory(target)) {
+            documentIngestionService.ingestDirectory(target);
+            return "Ingested all files in directory: " + path;
+        } else {
+            documentIngestionService.ingestFile(target);
+            return "Ingested file: " + path;
+        }
+    }
+
+    @GetMapping("/search")
+    public List<String> search(@RequestParam String query,
+                               @RequestParam(defaultValue = "5") int topK) {
+        return documentIngestionService.search(query, topK)
+                .stream()
+                .map(Document::getText)
+                .toList();
     }
 
     @PostMapping("/upload")
