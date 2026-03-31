@@ -29,6 +29,7 @@ public class WeaviateConfig {
     public WeaviateVectorStore vectorStore(WeaviateClient weaviateClient, EmbeddingModel embeddingModel) {
         return WeaviateVectorStore.builder(weaviateClient, embeddingModel)
                 .objectClass(objectClass)
+                .initializeSchema(true)
                 .build();
     }
 }

@@ -49,6 +49,7 @@ public class RiskManagerController {
         }
     }
 
+
     @GetMapping("/search")
     public List<String> search(@RequestParam String query,
                                @RequestParam(defaultValue = "5") int topK) {

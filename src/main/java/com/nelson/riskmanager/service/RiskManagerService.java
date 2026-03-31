@@ -47,4 +47,8 @@ RiskManagerService(AnthropicChatModel chatModel) {
         ChatResponse response = chatModel.call(new Prompt(userMessage));
         return response.getResult().getOutput().getText();
     }
+
+
+
+
 }

@@ -3,6 +3,7 @@ package com.nelson.riskmanager.service;
 import org.springframework.ai.document.Document;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.SearchRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class DocumentIngestionService {
 
     private final VectorStore vectorStore;
 
-    public DocumentIngestionService(VectorStore vectorStore) {
+    public DocumentIngestionService(@Autowired(required = false) VectorStore vectorStore) {
         this.vectorStore = vectorStore;
     }
 
