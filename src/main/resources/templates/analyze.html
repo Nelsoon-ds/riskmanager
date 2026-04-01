@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiskLens — Hazard Analysis Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:        #0e0f13;
+            --surface:   #16171d;
+            --surface-2: #1e1f27;
+            --surface-3: #262731;
+            --border:    #2a2b36;
+            --border-hi: #3a3b48;
+            --text:      #e2e3ea;
+            --text-dim:  #8b8d9a;
+            --text-mute: #5c5e6b;
+            --accent:    #7b8cff;
+            --accent-bg: rgba(123,140,255,0.08);
+
+            --risk-red:    #f56e6e;
+            --risk-amber:  #f5c26e;
+            --risk-blue:   #6ec5f5;
+            --risk-green:  #a8e06e;
+            --risk-purple: #d06ef5;
+
+            --font:      'DM Sans', system-ui, sans-serif;
+            --mono:      'JetBrains Mono', monospace;
+            --radius:    10px;
+            --radius-sm: 6px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font),serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── Header ─────────────────────────────── */
+        .header {
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-logo {
+            width: 32px; height: 32px;
+            background: linear-gradient(135deg, var(--risk-red), var(--risk-amber));
+            border-radius: 8px;
+            display: grid; place-items: center;
+            font-weight: 700; font-size: 15px; color: var(--bg);
+        }
+        .header h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+        .header h1 span { color: var(--text-dim); font-weight: 400; }
+
+        /* ── Upload area ────────────────────────── */
+        .upload-section {
+            max-width: 680px;
+            margin: 40px auto;
+            padding: 0 28px;
+            animation: fadeUp .5s ease both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .upload-form {
+            background: var(--surface);
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 48px 24px;
+            text-align: center;
+            transition: border-color .2s, background .2s;
+        }
+        .upload-form:hover { border-color: var(--accent); background: var(--accent-bg); }
+        .upload-form .placeholder { color: var(--text-dim); font-size: 14px; line-height: 1.7; }
+        .upload-form .placeholder strong { color: var(--accent); }
+
+        .upload-form input[type="file"] {
+            margin: 16px auto 0;
+            display: block;
+            font-family: var(--font),serif;
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--bg);
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 10px 22px;
+            font-family: var(--font),serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity .15s, transform .1s;
+            white-space: nowrap;
+            margin-top: 16px;
+        }
+        .btn-primary:hover { opacity: .88; }
+        .btn-primary:active { transform: scale(.97); }
+
+        /* ── Summary bar ────────────────────────── */
+        .summary-bar {
+            max-width: 1400px;
+            margin: 0 auto 20px;
+            padding: 0 28px;
+            animation: fadeUp .4s ease both;
+        }
+        .summary-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .severity-badge {
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            flex-shrink: 0;
+        }
+        .severity-badge.HIGH, .severity-badge.PRIMARY {
+            background: rgba(245,110,110,.15);
+            color: var(--risk-red);
+            border: 1px solid rgba(245,110,110,.3);
+        }
+        .severity-badge.MEDIUM, .severity-badge.SECONDARY {
+            background: rgba(245,194,110,.15);
+            color: var(--risk-amber);
+            border: 1px solid rgba(245,194,110,.3);
+        }
+        .severity-badge.LOW, .severity-badge.TERTIARY {
+            background: rgba(110,197,245,.15);
+            color: var(--risk-blue);
+            border: 1px solid rgba(110,197,245,.3);
+        }
+        .summary-text {
+            font-size: 13px;
+            line-height: 1.65;
+            color: var(--text-dim);
+        }
+
+        /* ── Analysis viewer ────────────────────── */
+        .viewer {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 28px 60px;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 24px;
+            animation: fadeUp .45s ease both;
+        }
+
+        /* Image panel */
+        .image-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .image-panel-header {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .image-panel-header h2 {
+            font-size: 13px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .06em;
+            color: var(--text-dim);
+        }
+        .toggle-all-btn {
+            background: var(--surface-3);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            font-family: var(--font);
+            font-size: 11px; font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all .15s;
+        }
+        .toggle-all-btn:hover { color: var(--text); border-color: var(--border-hi); }
+
+        .image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            background: #0a0a0d;
+        }
+        .image-wrapper img {
+            display: block;
+            max-width: 100%;
+            max-height: 65vh;
+            object-fit: contain;
+        }
+
+        /* Bounding boxes */
+        .bbox {
+            position: absolute;
+            border: 2px solid;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: opacity .25s, border-width .15s, box-shadow .25s;
+        }
+        .bbox.hidden { opacity: 0; pointer-events: none; }
+        .bbox.dimmed { opacity: .18; }
+        .bbox:hover { border-width: 3px; }
+        .bbox.selected {
+            border-width: 3px;
+            box-shadow: 0 0 20px var(--glow-color, rgba(255,255,255,.15));
+        }
+        .bbox-label {
+            position: absolute;
+            top: -1px; left: -2px;
+            transform: translateY(-100%);
+            padding: 2px 8px;
+            font-size: 11px; font-weight: 600;
+            border-radius: 4px 4px 4px 0;
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: .01em;
+            color: var(--bg);
+        }
+
+        /* Legend strip */
+        .legend-strip {
+            padding: 12px 18px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .legend-chip {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 12px 5px 8px;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px; font-weight: 500;
+            transition: all .2s;
+            user-select: none;
+        }
+        .legend-chip:hover { border-color: var(--border-hi); background: var(--surface-3); }
+        .legend-chip.off { opacity: .35; }
+        .legend-chip .chip-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            border: 2px solid;
+            flex-shrink: 0;
+            transition: background .2s;
+        }
+        .legend-chip:not(.off) .chip-dot { background: var(--chip-color); }
+
+        /* ── Detail panel ───────────────────────── */
+        .detail-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: calc(65vh + 90px);
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .detail-panel::-webkit-scrollbar { width: 5px; }
+        .detail-panel::-webkit-scrollbar-track { background: transparent; }
+        .detail-panel::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .detail-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color .25s, box-shadow .25s;
+            cursor: pointer;
+        }
+        .detail-card:hover { border-color: var(--border-hi); }
+        .detail-card.active {
+            border-color: var(--card-accent, var(--accent));
+            box-shadow: 0 0 0 1px var(--card-accent, var(--accent)), 0 4px 24px rgba(0,0,0,.3);
+        }
+
+        .detail-card-header {
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .detail-card-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .detail-card-header h3 {
+            font-size: 14px; font-weight: 600;
+            flex: 1; letter-spacing: -0.01em;
+        }
+        .detail-card-severity {
+            font-size: 10px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .04em;
+            padding: 2px 8px; border-radius: 10px;
+        }
+        .detail-card-chevron {
+            color: var(--text-mute);
+            font-size: 18px;
+            transition: transform .25s;
+        }
+        .detail-card.active .detail-card-chevron { transform: rotate(180deg); }
+
+        .detail-card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease, padding .25s ease;
+        }
+        .detail-card.active .detail-card-body {
+            max-height: 800px;
+            padding: 0 16px 16px;
+        }
+        .detail-card-body .desc {
+            font-size: 13px;
+            line-height: 1.72;
+            color: var(--text-dim);
+            margin-bottom: 14px;
+        }
+
+        .detail-subsection { margin-bottom: 12px; }
+        .detail-subsection-title {
+            font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .05em;
+            color: var(--text-mute);
+            margin-bottom: 6px;
+        }
+        .detail-subsection ul {
+            list-style: none;
+            padding: 0;
+        }
+        .detail-subsection li {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--text-dim);
+            padding: 4px 0 4px 14px;
+            position: relative;
+        }
+        .detail-subsection li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--text-mute);
+        }
+
+        .std-ref {
+            background: var(--surface-2);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            margin-bottom: 6px;
+        }
+        .std-ref-name {
+            font-size: 12px; font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .std-ref-section {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+        .std-ref-relevance {
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--text-dim);
+        }
+
+        /* ── Responsive ─────────────────────────── */
+        @media (max-width: 860px) {
+            .viewer { grid-template-columns: 1fr; }
+            .detail-panel { max-height: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <div class="header-logo">R</div>
+    <h1>RiskLens <span>— Hazard Analysis</span></h1>
+</div>
+
+<!-- Upload form -->
+<section class="upload-section" th:if="${assessment == null}">
+    <form class="upload-form" action="/analyze" method="post" enctype="multipart/form-data">
+        <div class="placeholder">
+            <strong>Upload an image</strong> for workplace safety analysis<br>
+            JPG, PNG, WebP — workplace photos, site images
+        </div>
+        <input type="file" name="file" accept="image/*" required>
+        <br>
+        <button type="submit" class="btn-primary">Analyze Image</button>
+    </form>
+</section>
+
+<!-- ════════════════════════════════════════════ -->
+<!-- Results — only rendered when assessment exists -->
+<!-- ════════════════════════════════════════════ -->
+<th:block th:if="${assessment != null}">
+
+    <!-- Back / new analysis link -->
+    <div style="max-width:1400px; margin:20px auto 0; padding:0 28px;">
+        <a href="/home" style="color:var(--accent); font-size:13px; text-decoration:none;">← New analysis</a>
+    </div>
+
+    <!-- Summary bar -->
+    <div class="summary-bar" style="margin-top:16px;">
+        <div class="summary-card">
+            <span class="severity-badge" th:classappend="${assessment.overallSeverity}"
+                  th:text="${assessment.overallSeverity}">HIGH</span>
+            <span class="summary-text" th:text="${assessment.summary}">Summary text here.</span>
+        </div>
+    </div>
+
+    <!-- Viewer: image + detail panel -->
+    <section class="viewer">
+
+        <!-- Left: annotated image -->
+        <div class="image-panel">
+            <div class="image-panel-header">
+                <h2>Annotated View</h2>
+                <button class="toggle-all-btn" id="toggleAllBtn">Hide All</button>
+            </div>
+            <div class="image-wrapper" id="imageWrapper">
+                <img th:src="${imageSrc}" alt="Analyzed image">
+
+                <!-- Bounding boxes rendered by Thymeleaf -->
+                <th:block th:each="hazard, iter : ${assessment.hazards}">
+                    <div class="bbox"
+                         th:data-index="${iter.index}"
+                         th:style="'left:' + ${hazard.boundingBox[0] * 100} + '%;'
+                                  + 'top:' + ${hazard.boundingBox[1] * 100} + '%;'
+                                  + 'width:' + ${(hazard.boundingBox[2] - hazard.boundingBox[0]) * 100} + '%;'
+                                  + 'height:' + ${(hazard.boundingBox[3] - hazard.boundingBox[1]) * 100} + '%;'"
+                         th:attrappend="data-color-index=${iter.index}"
+                         onclick="selectRisk(this.dataset.index)">
+                        <span class="bbox-label" th:text="${hazard.name}">Hazard name</span>
+                    </div>
+                </th:block>
+            </div>
+
+            <!-- Legend chips -->
+            <div class="legend-strip" id="legendStrip">
+                <th:block th:each="hazard, iter : ${assessment.hazards}">
+                    <div class="legend-chip"
+                         th:data-index="${iter.index}"
+                         th:attrappend="data-color-index=${iter.index}"
+                         th:onclick="'toggleRisk(' + ${iter.index} + ')'">
+                        <span class="chip-dot"></span>
+                        <span th:text="${hazard.name}">Hazard</span>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+
+        <!-- Right: detail cards -->
+        <div class="detail-panel" id="detailPanel">
+            <th:block th:each="hazard, iter : ${assessment.hazards}">
+                <div class="detail-card"
+                     th:data-index="${iter.index}"
+                     th:attrappend="data-color-index=${iter.index}"
+                     th:onclick="'selectRisk(' + ${iter.index} + ')'">
+
+                    <div class="detail-card-header">
+                        <div class="detail-card-dot"></div>
+                        <h3 th:text="${hazard.name}">Hazard name</h3>
+                        <span class="detail-card-severity severity-badge"
+                              th:classappend="${hazard.severity}"
+                              th:text="${hazard.severity}">PRIMARY</span>
+                        <span class="detail-card-chevron">▾</span>
+                    </div>
+
+                    <div class="detail-card-body">
+                        <div class="desc" th:text="${hazard.description}">Description text.</div>
+
+                        <!-- Standard references -->
+                        <div class="detail-subsection" th:if="${!hazard.standardReferences.isEmpty()}">
+                            <div class="detail-subsection-title">Referenced Standards</div>
+                            <th:block th:each="ref : ${hazard.standardReferences}">
+                                <div class="std-ref">
+                                    <div class="std-ref-name" th:text="${ref.standardName}">Standard</div>
+                                    <div class="std-ref-section" th:text="${ref.section}">Section</div>
+                                    <div class="std-ref-relevance" th:text="${ref.relevance}">Relevance</div>
+                                </div>
+                            </th:block>
+                        </div>
+
+                        <!-- Recommendations -->
+                        <div class="detail-subsection" th:if="${!hazard.recommendations.isEmpty()}">
+                            <div class="detail-subsection-title">Recommendations</div>
+                            <ul>
+                                <li th:each="rec : ${hazard.recommendations}" th:text="${rec}">Recommendation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
+    </section>
+
+</th:block>
+
+<script>
+    // ── Color palette ────────────────────────────
+    const COLORS = [
+        { border: '#f56e6e', bg: 'rgba(245,110,110,0.13)', glow: 'rgba(245,110,110,.25)' },
+        { border: '#f5c26e', bg: 'rgba(245,194,110,0.11)', glow: 'rgba(245,194,110,.25)' },
+        { border: '#6ec5f5', bg: 'rgba(110,197,245,0.11)', glow: 'rgba(110,197,245,.25)' },
+        { border: '#a8e06e', bg: 'rgba(168,224,110,0.11)', glow: 'rgba(168,224,110,.25)' },
+        { border: '#d06ef5', bg: 'rgba(208,110,245,0.11)', glow: 'rgba(208,110,245,.25)' },
+    ];
+
+    let activeRiskIndex = -1;
+    let allVisible = true;
+
+    // ── Apply colors on load ─────────────────────
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('[data-color-index]').forEach(el => {
+            const i = parseInt(el.dataset.colorIndex) % COLORS.length;
+            const color = COLORS[i];
+
+            if (el.classList.contains('bbox')) {
+                el.style.borderColor = color.border;
+                el.style.backgroundColor = color.bg;
+                el.style.setProperty('--glow-color', color.glow);
+                const label = el.querySelector('.bbox-label');
+                if (label) label.style.backgroundColor = color.border;
+            }
+            if (el.classList.contains('legend-chip')) {
+                el.style.setProperty('--chip-color', color.border);
+                const dot = el.querySelector('.chip-dot');
+                if (dot) dot.style.borderColor = color.border;
+            }
+            if (el.classList.contains('detail-card')) {
+                el.style.setProperty('--card-accent', color.border);
+                const dot = el.querySelector('.detail-card-dot');
+                if (dot) dot.style.backgroundColor = color.border;
+            }
+        });
+    });
+
+    // ── Select / drill-down ──────────────────────
+    function selectRisk(index) {
+        index = parseInt(index);
+        const wasActive = activeRiskIndex === index;
+        activeRiskIndex = wasActive ? -1 : index;
+
+        document.querySelectorAll('.bbox').forEach(box => {
+            const i = parseInt(box.dataset.index);
+            box.classList.toggle('selected', i === activeRiskIndex);
+            box.classList.toggle('dimmed', activeRiskIndex >= 0 && i !== activeRiskIndex);
+        });
+
+        document.querySelectorAll('.detail-card').forEach(card => {
+            const i = parseInt(card.dataset.index);
+            card.classList.toggle('active', i === activeRiskIndex);
+        });
+
+        if (activeRiskIndex >= 0) {
+            const card = document.querySelector('.detail-card[data-index="' + activeRiskIndex + '"]');
+            if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    // ── Toggle visibility ────────────────────────
+    function toggleRisk(index) {
+        index = parseInt(index);
+        const chip = document.querySelector('.legend-chip[data-index="' + index + '"]');
+        const box  = document.querySelector('.bbox[data-index="' + index + '"]');
+        if (!chip || !box) return;
+
+        const isOff = chip.classList.toggle('off');
+        box.classList.toggle('hidden', isOff);
+
+        if (isOff && activeRiskIndex === index) selectRisk(-1);
+
+        // Stop the click from also triggering selectRisk via parent
+        event.stopPropagation();
+    }
+
+    // ── Toggle all ───────────────────────────────
+    const toggleAllBtn = document.getElementById('toggleAllBtn');
+    if (toggleAllBtn) {
+        toggleAllBtn.addEventListener('click', () => {
+            allVisible = !allVisible;
+            toggleAllBtn.textContent = allVisible ? 'Hide All' : 'Show All';
+
+            document.querySelectorAll('.legend-chip').forEach(chip => {
+                chip.classList.toggle('off', !allVisible);
+            });
+            document.querySelectorAll('.bbox').forEach(box => {
+                box.classList.toggle('hidden', !allVisible);
+            });
+            if (!allVisible) selectRisk(-1);
+        });
+    }
+</script>
+</body>
+</html>

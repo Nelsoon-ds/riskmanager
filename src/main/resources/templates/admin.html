@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/admin-styles.css}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>RAG <span>Admin</span></h1>
+        <p class="subtitle">Ingest · Search · Inspect</p>
+    </header>
+
+    <!-- Ingest Card -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Document Ingestion</div>
+            <div class="card-desc">Ingest a file or directory into the vector store</div>
+        </div>
+        <div class="input-group">
+            <label for="ingestPath">File / Directory Path</label>
+            <div class="input-row">
+                <input type="text" id="ingestPath" placeholder="src/main/resources/static/data/report.pdf">
+                <button class="action-btn" id="ingestBtn">Ingest</button>
+            </div>
+        </div>
+        <div class="status-bar" id="ingestStatus"></div>
+    </div>
+
+    <!-- Search Card -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Similarity Search</div>
+            <div class="card-desc">Query the vector store for relevant document chunks</div>
+        </div>
+        <label for="searchQuery">Query</label>
+        <textarea id="searchQuery" placeholder="e.g. What are the encryption requirements?"></textarea>
+        <div class="search-controls">
+            <div class="field field-small">
+                <label for="topK">Top K</label>
+                <input type="number" id="topK" value="5" min="1" max="20">
+            </div>
+            <button class="action-btn primary" id="searchBtn">Search</button>
+        </div>
+    </div>
+
+    <!-- Results Card -->
+    <div class="card results-card" id="resultsCard">
+        <div class="card-header">
+            <div class="card-title">Results</div>
+            <div class="result-count" id="resultCount"></div>
+        </div>
+        <div class="results-list" id="resultsList"></div>
+    </div>
+
+    <!-- Store Overview Card -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Vector Store</div>
+            <div class="card-desc">Inspect and manage stored documents</div>
+        </div>
+        <div class="store-controls">
+            <div class="field">
+                <label for="weaviateUrl">Weaviate URL</label>
+                <input type="text" id="weaviateUrl" value="http://localhost:8080">
+            </div>
+            <div class="store-actions">
+                <button class="action-btn" id="inspectBtn">Inspect Store</button>
+                <button class="action-btn danger" id="clearBtn">Clear All</button>
+            </div>
+        </div>
+        <div class="status-bar" id="storeStatus"></div>
+        <div class="store-objects" id="storeObjects"></div>
+    </div>
+
+    <footer>RiskLens RAG Admin Panel</footer>
+</div>
+
+<script th:src="@{/javascript/admin-code.js}"></script>
+</body>
+</html>
