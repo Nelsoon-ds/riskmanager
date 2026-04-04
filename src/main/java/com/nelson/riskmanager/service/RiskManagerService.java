@@ -57,12 +57,15 @@ public Media parseImg(String imgPath) throws IOException {
     );
 }
 
-public RiskAssessment analyzeImage(String imagePath) throws IOException {
+public RiskAssessment analyzeImage(String imagePath, int width, int height) throws IOException {
     var imageMedia = parseImg(imagePath);
     // Step 1: Initial vision analysis — free text is fine here,
     // we just need enough detail to drive vector search
     PromptTemplate initialTemplate = new PromptTemplate(initialPromptResource);
-    String initialPrompt = initialTemplate.render();
+    String initialPrompt = initialTemplate.render(Map.of(
+            "width", String.valueOf(width),
+            "height", String.valueOf(height)
+    ));
 
     UserMessage initialMessage = UserMessage.builder()
             .text(initialPrompt)

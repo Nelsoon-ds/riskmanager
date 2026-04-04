@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 @Controller
@@ -32,9 +35,14 @@ public class ViewController {
         String fileName = fileStorageService.save(file);
         String imagePath = "./uploads/" + fileName;
 
-        RiskAssessment riskAssessment = riskManagerService.analyzeImage(imagePath);
+        BufferedImage img = ImageIO.read(new File(imagePath));
+        int width = img.getWidth();
+        int height = img.getHeight();
+
+        RiskAssessment riskAssessment = riskManagerService.analyzeImage(imagePath, width, height);
+
         model.addAttribute("assessment", riskAssessment);
-        model.addAttribute("imageSrc", "/" + file.getOriginalFilename());
+        model.addAttribute("imageSrc", "/" + fileName);
         return "analyze";
     }
 
