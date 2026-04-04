@@ -1,0 +1,687 @@
+Skip to main content
+
+  * Our websites:
+  * [EU-OSHA](https://osha.europa.eu)
+  * [Healthy Workplaces Campaign](https://healthy-workplaces.osha.europa.eu)
+  * [OSH Barometer](https://visualisation.osha.europa.eu/osh-barometer/)
+  * [OiRA](https://oira.osha.europa.eu)
+  * [OSHwiki](https://oshwiki.osha.europa.eu)
+  * [ESENER](https://visualisation.osha.europa.eu/esener)
+
+## Header logos section
+
+Image
+
+[![EU-OSHA
+Logo](/sites/default/files/2025-01/EN_OSHA_Logo_Small%20Scale_RGB.svg)
+](/sites/default/files/2025-01/EN_OSHA_Logo_Small%20Scale_RGB.svg)
+
+Image
+
+![European flag logo](/sites/default/files/2025-01/europeLogo_0_0.png)
+
+[ Image ![Logo of the European flag together with the flag of
+Ukraine](/sites/default/files/styles/large/public/2023-05/ukraine.png?itok=DSIde2yc)
+](https://commission.europa.eu/topics/eu-solidarity-ukraine)
+
+## Header form
+
+Select your language
+EnglishБългарскиČeštinaDanskDeutschNederlandsEestiΕλληνικάEspañolFrançaisHrvatskiItalianoÍslenskaLatviešuLietuviųMagyarMaltiNorskPolskiPortuguêsRomânăSlovenčinaSlovenščinaSuomiSvenska
+
+Go
+
+Search
+
+Search
+
+Toggle navigation
+
+## Main navigation
+
+  * [Home](/en "Access to Home page")
+
+  * [Themes](/en/themes)
+
+    * [Themes](/en/themes)
+
+      * [Ageing & OSH](/en/themes/osh-management-context-ageing-workforce)
+
+        * [Project on OSH of older workers](/en/themes/osh-management-context-ageing-workforce/ep-osh-project)
+
+      * [Benefits of OSH](/en/themes/good-osh-is-good-for-business)
+
+      * [Climate change](/en/themes/climate-change-and-occupational-safety-and-health)
+
+      * [COVID-19: resources for the workplace](/en/themes/covid-19-resources-workplace "Healthy Workplaces Stop the Pandemic")
+
+      * [Dangerous substances](/en/themes/dangerous-substances "Dangerous substances in the workplace — safety and health information and advice from EU-OSHA")
+
+        * [Practical tools and guidance](/en/themes/dangerous-substances/practical-tools-dangerous-substances "Practical tools and guidance")
+
+        * [Glossary](/themes/dangerous-substances/glossary_)
+
+        * [Roadmap on carcinogens](/en/themes/dangerous-substances/roadmap-to-carcinogens)
+
+        * [REACH](/en/themes/dangerous-substances/reach)
+
+        * [CLP](/en/themes/dangerous-substances/clp-classification-labelling-and-packaging-of-substances-and-mixtures)
+
+      * [Digitalisation of work](/en/themes/digitalisation-work)
+
+        * [Glossary](/themes/digitalisation-work/digitalisation-glossary_)
+
+      * [Disability and work](/en/themes/disability-and-occupational-safety-and-health)
+
+      * [Green jobs](/en/emerging-risks/green-jobs)
+
+      * [Health and social care](/en/themes/health-and-social-care-sector-osh)
+
+      * [Leadership & worker participation](/en/themes/leadership-and-worker-participation)
+
+      * [Mainstreaming OSH into education](/en/themes/mainstreaming-osh-education)
+
+        * [Vocational education and training](/en/themes/mainstreaming-osh-education/oshvet-project-osh-vocational-education-and-training)
+
+      * [Micro and small enterprises & OSH](/en/themes/safety-and-health-micro-and-small-enterprises)
+
+      * [Musculoskeletal disorders](/en/themes/musculoskeletal-disorders)
+
+        * [OSH Overview 2018-2020](/en/themes/musculoskeletal-disorders/research-work-related-msds)
+
+        * [Practical tools and guidance](/en/themes/musculoskeletal-disorders/practical-tools-musculoskeletal-disorders)
+
+        * [Glossary](/themes/musculoskeletal-disorders/glossary_)
+
+      * [Nanomaterials](/en/emerging-risks/nanomaterials)
+
+      * [Psychosocial risks and mental health at work](/en/themes/psychosocial-risks-and-mental-health)
+
+        * [Practical resources](/en/themes/psychosocial-risks-and-mental-health/mental-health-work-practical-resources)
+
+        * [Research 2022 - 2025](/en/themes/psychosocial-risks-and-mental-health/research)
+
+      * [Support compliance](/en/themes/support-compliance)
+
+        * [Supply‑chains](/en/themes/support-compliance/supply-chains)
+
+        * [Labour inspectorates and prevention](/en/themes/support-compliance/labour-inspectorates-prevention)
+
+      * [The development of OSH e-tools](/en/themes/osh-e-tools)
+
+      * [Women & OSH](/en/themes/women-and-health-work)
+
+      * [Work-related diseases](/en/themes/work-related-diseases)
+
+        * [From biological agents](/en/themes/work-related-diseases/biological-agents)
+
+        * [Work-related cancer](/en/themes/work-related-diseases/work-related-cancer)
+
+        * [Alert and sentinel systems](/en/themes/work-related-diseases/alert-and-sentinel-systems-osh)
+
+        * [Health surveillance](/en/themes/work-related-diseases/health-surveillance)
+
+        * [Rehabilitation and return to work](/en/themes/work-related-diseases/rehabilitation-and-return-work)
+
+      * [Young people & OSH](/en/themes/young-workers)
+
+![Themes icon](/sites/default/files/2024-05/Themes.png)
+
+  * [Emerging risks](/en/emerging-risks)
+
+    * [Emerging risks](/en/emerging-risks)
+
+      * [Circular economy](/en/emerging-risks/circular-economy)
+
+      * [ICT/digitalisation](/en/emerging-risks/developments-ict-and-digitalisation-work)
+
+      * [Nanomaterials](/en/emerging-risks/nanomaterials)
+
+      * [Green jobs](/en/emerging-risks/green-jobs)
+
+![Emerging risks icon](/sites/default/files/2024-05/Emerging%20risks.png)
+
+  * [Publications](/en/publications)
+
+    * [Publications](/en/publications)
+
+      * [Psychosocial risks and working conditions of migrant women in care, cleaning and domestic work](/en/publications/psychosocial-risks-and-working-conditions-migrant-women-care-cleaning-and-domestic-work)
+
+      * [Occupational cancer risk factors in Europe - Overview of the findings of the Workers' Exposure Survey](/en/publications/occupational-cancer-risk-factors-europe-overview-findings-workers-exposure-survey)
+
+      * [Denmark: preventing offensive behaviour and sexual harassment in a diverse workforce](/en/publications/denmark-preventing-offensive-behaviour-and-sexual-harassment-diverse-workforce)
+
+![Publications icon](/sites/default/files/2024-05/Publications.png)
+
+  * [Facts & figures](/en/facts-and-figures)
+
+    * [Facts & figures](/en/facts-and-figures)
+
+      * [Workers’ exposure survey](/en/facts-and-figures/workers-exposure-survey-cancer-risk-factors-europe "Workers’ exposure survey on cancer risk factors in Europe")
+
+      * [ESENER](/en/facts-and-figures/esener)
+
+      * [OSH Barometer](/en/facts-and-figures/data-visualisation/osh-barometer-data-visualisation-tool)
+
+      * [OSH Pulse](/en/facts-and-figures/osh-pulse)
+
+        * [2025 OSH Pulse](/en/facts-and-figures/osh-pulse/climate-digital-change)
+
+        * [2022 OSH Pulse](/en/facts-and-figures/osh-pulse/post-pandemic)
+
+![Facts & Figures
+icon](/sites/default/files/2024-05/Facts%20%26%20Figures_0.png)
+
+  * [Legislation](/en/safety-and-health-legislation)
+
+    * [Legislation](/en/safety-and-health-legislation)
+
+      * [Strategic framework 2021-27](/en/safety-and-health-legislation/eu-strategic-framework-health-and-safety-work-2021-2027 "Strategic framework 2021-27")
+
+      * [EU directives](/en/safety-and-health-legislation/european-directives)
+
+      * [EU guidelines](/en/safety-and-health-legislation/european-guidelines)
+
+      * [EU standards](/en/european-standards)
+
+      * [National legislation](/en/safety-and-health-legislation/national-legislation-safety-and-health-work)
+
+      * [OSH strategies](/en/safety-and-health-legislation/osh-strategies)
+
+![Legislation icon](/sites/default/files/2024-05/Legilsation.png)
+
+  * [Campaigns & awards](/en/campaigns-and-awards/healthy-workplaces-campaigns)
+
+    * [Healthy Workplaces Campaigns](/en/campaigns-and-awards/healthy-workplaces-campaigns)
+
+![Healthy Workplaces Campaigns
+icon](/sites/default/files/2024-05/Healthy%20Workplaces%20Campaigns.png)
+
+    * [EU-OSHA awards](/en/campaigns-and-awards/awards)
+
+      * [Good practice awards](/en/campaigns-and-awards/awards/good-practice-awards)
+
+        * [Participation criteria](/en/healthy-workplaces-campaigns/good-practice-award_2014-2015/participation-criteria)
+
+      * [Film award](/en/campaigns-and-awards/awards/hw-film-award)
+
+        * [Film criteria](/en/healthy-workplaces-campaigns/hw-film-award/film-criteria)
+
+        * [Award winner 2025](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2025)
+
+        * [Award winner 2024](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2024)
+
+        * [Award winner 2023](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2023)
+
+        * [Award winner 2022](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2022)
+
+        * [Award winner 2021](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2021)
+
+        * [Award winner 2020](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2020)
+
+        * [Award Winner 2019](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2019)
+
+        * [Award Winner 2018](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2018)
+
+        * [Award Winner 2017](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2017)
+
+        * [Award winner 2016](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2016)
+
+        * [Award winner 2015](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2015)
+
+        * [Award winner 2014](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2014)
+
+        * [Award winner 2013](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2013)
+
+        * [Award winner 2012](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2012)
+
+        * [Award winner 2011](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2011)
+
+        * [Award winner 2010](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2010)
+
+        * [Award winner 2009](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2009)
+
+![EU-OSHA awards icon](/sites/default/files/2024-05/EU-OSHA%20awards.png)
+
+  * [Tools & resources](/en/tools-and-resources)
+
+    * [Tools & resources](/en/tools-and-resources)
+
+      * [OSHwiki](/en/tools-and-resources/oshwiki)
+
+      * [Risk assessment tool (OiRA)](/en/tools-and-resources/oira)
+
+      * [Data visualisation](/en/facts-and-figures/data-visualisation "Data visualisation")
+
+        * [Interactive dashboard - ESENER](https://visualisation.osha.europa.eu/esener/en)
+
+        * [OSH Barometer](/en/facts-and-figures/data-visualisation/osh-barometer-data-visualisation-tool)
+
+      * [Napo](/en/tools-and-resources/napo-safety-smile)
+
+      * [Practical tools and guidance](/en/tools-and-resources/practical-tools-and-guidance)
+
+        * [Musculoskeletal disorders](/en/themes/musculoskeletal-disorders/practical-tools-musculoskeletal-disorders)
+
+        * [Dangerous substances](/en/themes/dangerous-substances/practical-tools-dangerous-substances "Dangerous substances in the workplace — safety and health information and advice from EU-OSHA")
+
+      * [OSH e-guides](/en/tools-and-resources/e-guides)
+
+        * [Dangerous substances e-tool](/en/tools-and-resources/e-guides/dangerous-substances-e-tool)
+
+        * [E-guide on vehicle safety](/en/tools-and-resources/e-guides/eu-e-guide-vehicle-safety-vesafe)
+
+        * [E–guide for all ages](/en/tools-and-resources/e-guides/e-guide-all-ages)
+
+        * [E–guide manage stress](/en/tools-and-resources/e-guides/e-guide-managing-stress-and-psychosocial-risks)
+
+      * [Campaign toolkit](/en/tools-and-resources/osh-campaign-toolkit)
+
+      * [Infographics](/en/tools-and-resources/infographics)
+
+      * [Seminar reports](/en/tools-and-resources/seminars)
+
+      * [Multilingualism](/en/tools-and-resources/multilingualism)
+
+      * [Glossaries](/en/tools-and-resources/glossaries)
+
+        * [Musculoskeletal disorders glossary](/en/themes/musculoskeletal-disorders/glossary)
+
+        * [Dangerous substances glossary](/en/themes/dangerous-substances/glossary)
+
+        * [Digitalisation glossary](/en/themes/digitalisation-work/digitalisation-glossary)
+
+      * [EU-OSHA thesaurus](/en/tools-and-resources/eu-osha-thesaurus)
+
+      * [Blog](/en/tools-and-resources/blog)
+
+![Tools & Resources
+icon](/sites/default/files/2024-05/Tools%20%26%20Resources.png)
+
+  * [About EU-OSHA](/en/about-eu-osha)
+
+    * [About EU-OSHA](/en/about-eu-osha)
+
+      * [What we do](/en/about-eu-osha/what-we-do)
+
+        * [Strategy and programmes](/en/about-eu-osha/what-we-do/corporate-strategy-and-work-programmes)
+
+        * [Finance and budget](/en/about-eu-osha/what-we-do/finance)
+
+        * [Annual reports](/en/about-eu-osha/what-we-do/annual-reports)
+
+        * [Performance and results](/en/about-eu-osha/what-we-do/performance-and-results)
+
+        * [EU presidency](/en/about-eu-osha/what-we-do/european-presidency)
+
+      * [Governance](/en/about-eu-osha/governance-eu-osha)
+
+        * [Founding regulation](/en/about-eu-osha/governance-eu-osha/founding-regulation)
+
+        * [Our Boards](/en/about-eu-osha/governance-eu-osha/boards)
+
+        * [Organisation](/en/about-eu-osha/governance-eu-osha/organisation)
+
+        * [Request of internal documents](/en/about-eu-osha/governance-eu-osha/internal-documents)
+
+        * [Control standards](/en/about-eu-osha/governance-eu-osha/internal-control-standards)
+
+        * [Good administrative behaviour](/en/about-eu-osha/governance-eu-osha/good-administrative-behaviour)
+
+        * [Fraud and conflict of interest prevention](/en/about-eu-osha/governance-eu-osha/fraud-and-conflict-interest-prevention)
+
+      * [National focal points](/en/about-eu-osha/national-focal-points)
+
+        * [Focal points details](/en/about-eu-osha/national-focal-points/focal-points-index)
+
+      * [Press room](/en/about-eu-osha/press-room)
+
+        * [Press kit](/en/about-eu-osha/press-room/press-kit)
+
+        * [Become a media partner of EU-OSHA](/en/about-eu-osha/press-room/become-media-partner)
+
+      * [Careers](/en/about-eu-osha/careers)
+
+      * [Procurement](/en/about-eu-osha/procurement)
+
+      * [Data protection](/en/about-eu-osha/data-protection)
+
+      * [Contact us](/en/contact-us)
+
+        * [How to reach us](/en/about-eu-osha/contact-us/how-to-reach-us)
+
+      * [Photo gallery](/en/photo-gallery)
+
+![About EU-OSHA icon](/sites/default/files/2024-05/About%20EU-OSHA.png)
+
+  1. [Home](/en)
+  2. [Legislation](/en/safety-and-health-legislation)
+  3. [EU directives](/en/safety-and-health-legislation/european-directives)
+  4. [Workplaces, equipment, signs, personal...](/en/legislation/directives/workplaces-equipment-signs-personal-protective-equipment)
+  5. Directive 89/654/EEC - workplace requirements 
+
+Main menu items visible
+
+  * [Home](/en "Access to Home page")
+  * [Themes](/en/themes)
+    * [Themes](/en/themes)
+      * [Ageing & OSH](/en/themes/osh-management-context-ageing-workforce)
+        * [Project on OSH of older workers](/en/themes/osh-management-context-ageing-workforce/ep-osh-project)
+      * [Benefits of OSH](/en/themes/good-osh-is-good-for-business)
+      * [Climate change](/en/themes/climate-change-and-occupational-safety-and-health)
+      * [COVID-19: resources for the workplace](/en/themes/covid-19-resources-workplace "Healthy Workplaces Stop the Pandemic")
+      * [Dangerous substances](/en/themes/dangerous-substances "Dangerous substances in the workplace — safety and health information and advice from EU-OSHA")
+        * [Practical tools and guidance](/en/themes/dangerous-substances/practical-tools-dangerous-substances "Practical tools and guidance")
+        * [Glossary](/themes/dangerous-substances/glossary_)
+        * [Roadmap on carcinogens](/en/themes/dangerous-substances/roadmap-to-carcinogens)
+        * [REACH](/en/themes/dangerous-substances/reach)
+        * [CLP](/en/themes/dangerous-substances/clp-classification-labelling-and-packaging-of-substances-and-mixtures)
+      * [Digitalisation of work](/en/themes/digitalisation-work)
+      * [Disability and work](/en/themes/disability-and-occupational-safety-and-health)
+      * [Green jobs](/en/emerging-risks/green-jobs)
+      * [Health and social care](/en/themes/health-and-social-care-sector-osh)
+      * [Leadership & worker participation](/en/themes/leadership-and-worker-participation)
+      * [Mainstreaming OSH into education](/en/themes/mainstreaming-osh-education)
+      * [Micro and small enterprises & OSH](/en/themes/safety-and-health-micro-and-small-enterprises)
+      * [Musculoskeletal disorders](/en/themes/musculoskeletal-disorders)
+        * [OSH Overview 2018-2020](/en/themes/musculoskeletal-disorders/research-work-related-msds)
+        * [Practical tools and guidance](/en/themes/musculoskeletal-disorders/practical-tools-musculoskeletal-disorders)
+        * [Glossary](/themes/musculoskeletal-disorders/glossary_)
+      * [Nanomaterials](/en/emerging-risks/nanomaterials)
+      * [Psychosocial risks and mental health at work](/en/themes/psychosocial-risks-and-mental-health)
+        * [Practical resources](/en/themes/psychosocial-risks-and-mental-health/mental-health-work-practical-resources)
+        * [Research 2022 - 2025](/en/themes/psychosocial-risks-and-mental-health/research)
+      * [Support compliance](/en/themes/support-compliance)
+        * [Supply‑chains](/en/themes/support-compliance/supply-chains)
+        * [Labour inspectorates and prevention](/en/themes/support-compliance/labour-inspectorates-prevention)
+      * [The development of OSH e-tools](/en/themes/osh-e-tools)
+      * [Women & OSH](/en/themes/women-and-health-work)
+      * [Work-related diseases](/en/themes/work-related-diseases)
+        * [From biological agents](/en/themes/work-related-diseases/biological-agents)
+        * [Work-related cancer](/en/themes/work-related-diseases/work-related-cancer)
+        * [Alert and sentinel systems](/en/themes/work-related-diseases/alert-and-sentinel-systems-osh)
+        * [Health surveillance](/en/themes/work-related-diseases/health-surveillance)
+        * [Rehabilitation and return to work](/en/themes/work-related-diseases/rehabilitation-and-return-work)
+      * [Young people & OSH](/en/themes/young-workers)
+  * [Emerging risks](/en/emerging-risks)
+    * [Emerging risks](/en/emerging-risks)
+      * [Circular economy](/en/emerging-risks/circular-economy)
+      * [ICT/digitalisation](/en/emerging-risks/developments-ict-and-digitalisation-work)
+      * [Nanomaterials](/en/emerging-risks/nanomaterials)
+      * [Green jobs](/en/emerging-risks/green-jobs)
+  * [Publications](/en/publications)
+  * [Facts & figures](/en/facts-and-figures)
+    * [Facts & figures](/en/facts-and-figures)
+      * [Workers’ exposure survey](/en/facts-and-figures/workers-exposure-survey-cancer-risk-factors-europe "Workers’ exposure survey on cancer risk factors in Europe")
+      * [ESENER](/en/facts-and-figures/esener)
+      * [OSH Barometer](/en/facts-and-figures/data-visualisation/osh-barometer-data-visualisation-tool)
+      * [OSH Pulse](/en/facts-and-figures/osh-pulse)
+  * [Legislation](/en/safety-and-health-legislation)
+    * [Legislation](/en/safety-and-health-legislation)
+      * [Strategic framework 2021-27](/en/safety-and-health-legislation/eu-strategic-framework-health-and-safety-work-2021-2027 "Strategic framework 2021-27")
+      * [EU directives](/en/safety-and-health-legislation/european-directives)
+      * [EU guidelines](/en/safety-and-health-legislation/european-guidelines)
+      * [EU standards](/en/european-standards)
+      * [National legislation](/en/safety-and-health-legislation/national-legislation-safety-and-health-work)
+      * [OSH strategies](/en/safety-and-health-legislation/osh-strategies)
+  * [Campaigns & awards](/en/campaigns-and-awards/healthy-workplaces-campaigns)
+    * [Healthy Workplaces Campaigns](/en/campaigns-and-awards/healthy-workplaces-campaigns)
+    * [EU-OSHA awards](/en/campaigns-and-awards/awards)
+      * [Good practice awards](/en/campaigns-and-awards/awards/good-practice-awards)
+        * [Participation criteria](/en/healthy-workplaces-campaigns/good-practice-award_2014-2015/participation-criteria)
+      * [Film award](/en/campaigns-and-awards/awards/hw-film-award)
+        * [Film criteria](/en/healthy-workplaces-campaigns/hw-film-award/film-criteria)
+        * [Award winner 2025](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2025)
+        * [Award winner 2024](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2024)
+        * [Award winner 2023](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2023)
+        * [Award winner 2022](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2022)
+        * [Award winner 2021](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2021)
+        * [Award winner 2020](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2020)
+        * [Award Winner 2019](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2019)
+        * [Award Winner 2018](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2018)
+        * [Award Winner 2017](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2017)
+        * [Award winner 2016](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2016)
+        * [Award winner 2015](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2015)
+        * [Award winner 2014](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2014)
+        * [Award winner 2013](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2013)
+        * [Award winner 2012](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2012)
+        * [Award winner 2011](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2011)
+        * [Award winner 2010](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2010)
+        * [Award winner 2009](/en/healthy-workplaces-campaigns/hw-film-award/award-winner-2009)
+  * [Tools & resources](/en/tools-and-resources)
+    * [Tools & resources](/en/tools-and-resources)
+      * [OSHwiki](/en/tools-and-resources/oshwiki)
+      * [Risk assessment tool (OiRA)](/en/tools-and-resources/oira)
+      * [Data visualisation](/en/facts-and-figures/data-visualisation "Data visualisation")
+        * [Interactive dashboard - ESENER](https://visualisation.osha.europa.eu/esener/en)
+        * [OSH Barometer](/en/facts-and-figures/data-visualisation/osh-barometer-data-visualisation-tool)
+      * [Napo](/en/tools-and-resources/napo-safety-smile)
+      * [Practical tools and guidance](/en/tools-and-resources/practical-tools-and-guidance)
+        * [Musculoskeletal disorders](/en/themes/musculoskeletal-disorders/practical-tools-musculoskeletal-disorders)
+        * [Dangerous substances](/en/themes/dangerous-substances/practical-tools-dangerous-substances "Dangerous substances in the workplace — safety and health information and advice from EU-OSHA")
+      * [OSH e-guides](/en/tools-and-resources/e-guides)
+        * [Dangerous substances e-tool](/en/tools-and-resources/e-guides/dangerous-substances-e-tool)
+        * [E-guide on vehicle safety](/en/tools-and-resources/e-guides/eu-e-guide-vehicle-safety-vesafe)
+        * [E–guide for all ages](/en/tools-and-resources/e-guides/e-guide-all-ages)
+        * [E–guide manage stress](/en/tools-and-resources/e-guides/e-guide-managing-stress-and-psychosocial-risks)
+      * [Campaign toolkit](/en/tools-and-resources/osh-campaign-toolkit)
+      * [Infographics](/en/tools-and-resources/infographics)
+      * [Seminar reports](/en/tools-and-resources/seminars)
+      * [Multilingualism](/en/tools-and-resources/multilingualism)
+      * [Glossaries](/en/tools-and-resources/glossaries)
+        * [Musculoskeletal disorders glossary](/en/themes/musculoskeletal-disorders/glossary)
+        * [Dangerous substances glossary](/en/themes/dangerous-substances/glossary)
+        * [Digitalisation glossary](/en/themes/digitalisation-work/digitalisation-glossary)
+      * [EU-OSHA thesaurus](/en/tools-and-resources/eu-osha-thesaurus)
+      * [Blog](/en/tools-and-resources/blog)
+  * [About EU-OSHA](/en/about-eu-osha)
+    * [About EU-OSHA](/en/about-eu-osha)
+      * [What we do](/en/about-eu-osha/what-we-do)
+        * [Strategy and programmes](/en/about-eu-osha/what-we-do/corporate-strategy-and-work-programmes)
+          * [EU institutions](/en/about-eu-osha/what-we-do/corporate-strategy-and-work-programmes/eu-institutions)
+          * [Cooperation with other agencies](/en/about-eu-osha/what-we-do/corporate-strategy-and-work-programmes/cooperation-with-other-agencies)
+          * [EU Pillar of Social Rights](/en/about-eu-osha/what-we-do/corporate-strategy-and-work-programmes/supporting-european-pillar-social-rights)
+          * [Strategic framework 2021-27](/en/safety-and-health-legislation/eu-strategic-framework-health-and-safety-work-2021-2027)
+        * [Finance and budget](/en/about-eu-osha/what-we-do/finance)
+          * [Upplýsingar um fjármál og fjárhagsáætlun](/en/about-eu-osha/what-we-do/finance/finance-and-budget-information)
+        * [Annual reports](/en/about-eu-osha/what-we-do/annual-reports)
+        * [Performance and results](/en/about-eu-osha/what-we-do/performance-and-results)
+        * [EU presidency](/en/about-eu-osha/what-we-do/european-presidency)
+      * [Governance](/en/about-eu-osha/governance-eu-osha)
+        * [Founding regulation](/en/about-eu-osha/governance-eu-osha/founding-regulation)
+        * [Our Boards](/en/about-eu-osha/governance-eu-osha/boards)
+          * [Executive Board](/en/about-eu-osha/governance-eu-osha/boards/executive-board)
+          * [Management Board](/en/about-eu-osha/governance-eu-osha/boards/management-board)
+          * [Advisory groups](/en/about-eu-osha/governance-eu-osha/boards/advisory-groups)
+        * [Organisation](/en/about-eu-osha/governance-eu-osha/organisation)
+        * [Request of internal documents](/en/about-eu-osha/governance-eu-osha/internal-documents)
+          * [Document register](/en/about-eu-osha/governance-eu-osha/internal-documents/document-register)
+        * [Control standards](/en/about-eu-osha/governance-eu-osha/internal-control-standards)
+        * [Good administrative behaviour](/en/about-eu-osha/governance-eu-osha/good-administrative-behaviour)
+        * [Fraud and conflict of interest prevention](/en/about-eu-osha/governance-eu-osha/fraud-and-conflict-interest-prevention)
+      * [National focal points](/en/about-eu-osha/national-focal-points)
+        * [Focal points details](/en/about-eu-osha/national-focal-points/focal-points-index)
+      * [Press room](/en/about-eu-osha/press-room)
+        * [Press kit](/en/about-eu-osha/press-room/press-kit)
+        * [Become a media partner of EU-OSHA](/en/about-eu-osha/press-room/become-media-partner)
+      * [Careers](/en/about-eu-osha/careers)
+      * [Procurement](/en/about-eu-osha/procurement)
+      * [Data protection](/en/about-eu-osha/data-protection)
+      * [Contact us](/en/contact-us)
+        * [How to reach us](/en/about-eu-osha/contact-us/how-to-reach-us)
+      * [Photo gallery](/en/photo-gallery)
+
+## Filter results
+
+Search
+
+Directive number
+
+Search
+
+## Date of directive
+
+  * [ 2019 (3) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2019)
+  * [ 2018 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2018)
+  * [ 2017 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2017)
+  * [ 2016 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2016)
+  * [ 2015 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2015)
+  * [ 2014 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2014)
+  * [ 2013 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2013)
+  * [ 2011 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2011)
+  * [ 2010 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2010)
+  * [ 2009 (6) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2009)
+  * [ 2008 (3) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2008)
+  * [ 2006 (5) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2006)
+  * [ 2004 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2004)
+  * [ 2003 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2003)
+  * [ 2002 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2002)
+  * [ 2001 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2001)
+  * [ 2000 (4) ](/en/search/directives?f%5B0%5D=date_of_directive%3A2000)
+  * [ 1999 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1999)
+  * [ 1998 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1998)
+  * [ 1994 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1994)
+  * [ 1993 (1) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1993)
+  * [ 1992 (6) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1992)
+  * [ 1991 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1991)
+  * [ 1990 (2) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1990)
+  * [ 1989 (3) ](/en/search/directives?f%5B0%5D=date_of_directive%3A1989)
+
+Facet Date of directive
+
+Latest update: 19/03/2021
+
+# Directive 89/654/EEC - workplace requirements
+
+The Workplace Directive provides for minimum requirements for workplaces
+covering issues such as traffic routes, workroom dimensions and indoor air
+quality.
+
+**Background**  
+  
+Directive 89/654/EEC of 30 November 1989 concerning the minimum safety and
+health requirements for the workplace is the first individual directive within
+the meaning of Article 16 of the [OSH Framework Directive
+89/391/EEC](https://osha.europa.eu/en/legislation/directives/the-osh-
+framework-directive/the-osh-framework-directive-introduction).
+
+**Definition and scope**  
+  
+The Directive defines the term “workplace” as _the place intended to house
+workstations on the premises of the undertaking and/or establishment and any
+other place within the area of the undertaking and/or establishment to which
+the worker has access in the course of his employment_.  
+  
+The Directive does not apply to means of transport used outside the
+undertaking, or workplaces inside means of transport, temporary or mobile work
+sites, extractive industries, fishing boats and fields, woods and other land
+forming part of an agricultural or forestry undertaking but situated away from
+the undertaking's buildings.
+
+**Contents**
+
+_Employers' obligations_  
+  
+Employers must ensure that workplaces satisfy the minimum safety and health
+requirements laid down in the annexes. Annex I applies to 'new' workplaces,
+namely workplaces used for the first time after 31 December 1992. Annex II
+contains requirements for workplaces that were already in use on 1 January
+1993.
+
+_Annexes_  
+  
+Topics covered in the Annexes:
+
+  * stability and solidity
+  * electrical installations
+  * emergency routes and exits
+  * fire detection and fire fighting
+  * ventilation of enclosed workplaces
+  * room temperature
+  * natural and artificial room lighting
+  * floors, walls, ceilings and roofs of rooms
+  * windows and skylights
+  * doors and gates
+  * traffic routes - danger areas
+  * specific measures for escalators and travelators
+  * loading bays and ramps
+  * room dimensions and air space in rooms - freedom of movement at the workstation
+  * rest rooms
+  * pregnant women and nursing mothers
+  * sanitary equipment
+  * first aid rooms/equipment
+  * disabled workers
+  * outdoor workplaces (special provisions)
+  * movement of pedestrians and vehicles
+
+### [Read the full text of Directive
+89/654/EEC](http://data.europa.eu/eli/dir/1989/654/)
+
+### [National laws implementing this Directive](https://eur-
+lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:31989L0654)
+
+
+
+**Further information**
+
+[Evaluation of the Practical Implementation of the EU Occupational Safety and
+Health (OSH) Directives in EU Member States - Directive concerning minimum
+safety and health requirements for the workplace
+(2017)](http://ec.europa.eu/social/BlobServlet?docId=16936&langId=en)
+
+## Site footer
+
+## Footer Menu
+
+  * [Links](/en)
+
+    * [Site map](/en/sitemap)
+
+    * [Contact us](/en/contact-us)
+
+    * [Accessibility](/en/accessibility-info)
+
+    * [Data protection](/en/about-eu-osha/data-protection)
+
+    * [Cookies](/en/cookies)
+
+    * [Legal notice](/en/legal-notice)
+
+  * [Social](/en)
+
+    * Follow us
+
+    * [LinkedIn](http://www.linkedin.com/company/european-agency-for-safety-and-health-at-work "LinkedIn")
+
+[ Image ![LinkedIn](/sites/default/files/styles/large/public/2023-11/LinkedIn-
+white.png?itok=ELEUhLTX) ](http://www.linkedin.com/company/european-agency-
+for-safety-and-health-at-work "LinkedIn")
+
+    * [Facebook](https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork "Facebook")
+
+[ Image ![Facebook](/sites/default/files/styles/large/public/2023-11/Facebook-
+white.png?itok=J3-uDT3d)
+](https://www.facebook.com/EuropeanAgencyforSafetyandHealthatWork "Facebook")
+
+    * [Twitter](https://twitter.com/eu_osha "Twitter")
+
+[ Image ![Twitter](/sites/default/files/styles/large/public/2023-11/Twitter-
+white.png?itok=_XtPylvJ) ](https://twitter.com/eu_osha "Twitter")
+
+    * [Youtube](https://www.youtube.com/user/EUOSHA "Youtube")
+
+[ Image ![YouTube](/sites/default/files/styles/large/public/2023-11/YouTube-
+white.png?itok=Sa4NJrJc) ](https://www.youtube.com/@EU_OSHA "YouTube")
+
+    * [Flickr](https://www.flickr.com/photos/euosha/albums "Flickr")
+
+[ Image ![Flickr](/sites/default/files/styles/large/public/2023-11/Flickr-
+white.png?itok=LDm0ceTu) ](https://www.flickr.com/photos/euosha/albums
+"Flickr")
+
+© 2023 EU-OSHA | 
+
+[An agency of the European Union](https://european-
+union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-
+institutions-and-bodies/european-agency-safety-and-health-work-eu-osha_en)
+
