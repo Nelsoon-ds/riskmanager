@@ -4,6 +4,7 @@ import com.nelson.riskmanager.model.RiskAssessment;
 import com.nelson.riskmanager.service.FileStorageService;
 import com.nelson.riskmanager.service.RiskManagerService;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-@EnableWebSecurity
 @Controller
 public class ViewController {
 
@@ -28,16 +28,17 @@ public class ViewController {
         this.fileStorageService = fileStorageService;
     }
 
-    @GetMapping("/home")
-    public String home() {
+    @GetMapping("/analyze")
+    public String analysisView() {
         return "analyze";
     }
 
-
-    @GetMapping("/authentication/login")
+    @GetMapping("/login")
     public String login() {
         return "login";
     }
+
+
 
     @PostMapping("/analyze")
     public String analyze(@RequestParam("file") MultipartFile file, Model model) throws IOException {
@@ -60,6 +61,7 @@ public class ViewController {
     public String admin() {
         return "admin";
     }
+
 
 
 }
