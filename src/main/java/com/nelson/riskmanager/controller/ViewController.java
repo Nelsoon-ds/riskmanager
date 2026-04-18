@@ -40,7 +40,6 @@ public class ViewController {
     }
 
 
-
     @PostMapping("/analyze")
     public String analyze(@RequestParam("file") MultipartFile file, Model model) throws IOException {
         String fileName = fileStorageService.save(file);
@@ -50,10 +49,13 @@ public class ViewController {
         int width = img.getWidth();
         int height = img.getHeight();
 
-        RiskAssessment riskAssessment = riskManagerService.analyzeImage(imagePath, width, height);
-
-        model.addAttribute("assessment", riskAssessment);
-        model.addAttribute("imageSrc", "/" + fileName);
+        try {
+            RiskAssessment riskAssessment = riskManagerService.analyzeImage(imagePath, width, height);
+            model.addAttribute("assessment", riskAssessment);
+            model.addAttribute("imageSrc", "/" + fileName);
+        } catch (Exception e) {
+            model.addAttribute("error", "The analysis response was too large to process. Try a simpler image.");
+        }
         return "analyze";
     }
 
