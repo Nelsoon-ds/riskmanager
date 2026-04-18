@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                                 .loginPage("/login")
                                 .failureUrl("/login?error")
                                 .loginProcessingUrl("/authentication/login/process")
-                                .defaultSuccessUrl("/analyze", true)  // force redirect to /home after login
+                                .defaultSuccessUrl("/start", true)  // force redirect to /home after login
 
                 )
                 .logout(logout -> logout

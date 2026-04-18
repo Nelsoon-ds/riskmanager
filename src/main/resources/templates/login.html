@@ -1,22 +1,314 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-  <title>Please Log In</title>
+  <title>RiskLens — Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #0c0d10;
+      --surface:   #15161c;
+      --surface-2: #1c1d25;
+      --surface-3: #24252e;
+      --border:    #282a35;
+      --border-hi: #383a48;
+      --text:      #e2e3ea;
+      --text-dim:  #8b8d9a;
+      --text-mute: #5c5e6b;
+      --accent:    #7b8cff;
+      --accent-bg: rgba(123,140,255,0.08);
+      --accent-border: rgba(123,140,255,0.25);
+      --danger:    #f56e6e;
+      --danger-bg: rgba(245,110,110,0.08);
+      --danger-border: rgba(245,110,110,0.2);
+      --success:   #6ec5a0;
+      --success-bg: rgba(110,197,160,0.08);
+      --success-border: rgba(110,197,160,0.2);
+      --font:      'DM Sans', system-ui, sans-serif;
+      --mono:      'JetBrains Mono', monospace;
+      --radius:    10px;
+      --radius-sm: 6px;
+      --header-h:  54px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Header ── */
+    .header {
+      height: var(--header-h);
+      padding: 0 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-logo {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, #f56e6e, #f5c26e);
+      border-radius: 7px;
+      display: grid; place-items: center;
+      font-weight: 700; font-size: 13px; color: #0c0d10;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-size: 15px; font-weight: 600; letter-spacing: -0.02em;
+    }
+    .header h1 span { color: var(--text-dim); font-weight: 400; }
+
+    /* ── Main ── */
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    /* ── Login card ── */
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      animation: fadeUp .45s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-card-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-mute);
+      margin-bottom: 10px;
+      font-family: var(--mono);
+    }
+
+    .login-card-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .login-card-subtitle {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    /* ── Alert banners ── */
+    .alert {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .alert-icon {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 10px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .alert-error {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      color: var(--danger);
+    }
+    .alert-error .alert-icon {
+      background: rgba(245,110,110,.2);
+      color: var(--danger);
+    }
+    .alert-success {
+      background: var(--success-bg);
+      border: 1px solid var(--success-border);
+      color: var(--success);
+    }
+    .alert-success .alert-icon {
+      background: rgba(110,197,160,.2);
+      color: var(--success);
+    }
+
+    /* ── Form ── */
+    .form-group {
+      margin-bottom: 14px;
+    }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 7px;
+      letter-spacing: .01em;
+    }
+    .form-input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-family: var(--font);
+      font-size: 14px;
+      color: var(--text);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .form-input::placeholder { color: var(--text-mute); }
+    .form-input:hover { border-color: var(--border-hi); }
+    .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-bg);
+    }
+
+    /* ── Submit ── */
+    .btn-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #0c0d10;
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 11px 24px;
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 20px;
+      letter-spacing: -0.01em;
+      transition: opacity .15s, transform .1s;
+    }
+    .btn-submit:hover { opacity: .88; }
+    .btn-submit:active { transform: scale(.98); }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0 0;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .divider-text {
+      font-size: 11px;
+      color: var(--text-mute);
+      font-family: var(--mono);
+    }
+
+    /* ── Footer note ── */
+    .login-footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .login-footer-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--text-mute);
+    }
+    .login-footer p {
+      font-size: 12px;
+      color: var(--text-mute);
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
-<h1>Please Log In</h1>
-<div th:if="${param.error}">
-  Invalid username and password.</div>
-<div th:if="${param.logout}">
-  You have been logged out.</div>
-<form th:action="@{/authentication/login/process}" method="post">
-  <div>
-    <input type="text" name="username" placeholder="Username"/>
+
+<header class="header">
+  <div class="header-logo">R</div>
+  <h1>Risk<span>Lens</span></h1>
+</header>
+
+<main class="main">
+  <div class="login-card">
+
+    <p class="login-card-eyebrow">Workplace Safety Analysis</p>
+    <h2 class="login-card-title">Sign in to continue</h2>
+    <p class="login-card-subtitle">Enter your credentials to access the dashboard.</p>
+
+    <div th:if="${param.error}" class="alert alert-error">
+      <div class="alert-icon">!</div>
+      Invalid username or password. Please try again.
+    </div>
+
+    <div th:if="${param.logout}" class="alert alert-success">
+      <div class="alert-icon">✓</div>
+      You have been signed out successfully.
+    </div>
+
+    <div th:if="${param.failed}" class="alert alert-error">
+      <div class="alert-icon">!</div>
+      Authentication failed. Please try again.
+    </div>
+
+    <form th:action="@{/authentication/login/process}" method="post">
+
+      <div class="form-group">
+        <label class="form-label" for="username">Username</label>
+        <input
+                class="form-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter your username"
+                autocomplete="username"
+                autofocus
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input
+                class="form-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+        />
+      </div>
+
+      <button class="btn-submit" type="submit">Sign in</button>
+
+    </form>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-text">secure access</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="login-footer">
+      <div class="login-footer-dot"></div>
+      <p>Access is restricted to authorized personnel only.</p>
+    </div>
+
   </div>
-  <div>
-    <input type="password" name="password" placeholder="Password"/>
-  </div>
-  <input type="submit" value="Log in" />
-</form>
+</main>
+
 </body>
 </html>

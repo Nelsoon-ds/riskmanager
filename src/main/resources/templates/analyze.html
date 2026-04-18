@@ -391,7 +391,7 @@
 
 <!-- Upload -->
 <section class="upload-section" th:if="${assessment == null}">
-    <form class="upload-form" action="/analyze" method="post" enctype="multipart/form-data">
+    <form class="upload-form" th:action="@{/analyze}" method="post" enctype="multipart/form-data">
         <div class="placeholder">
             <strong>Upload an image</strong> for workplace safety analysis<br>
             JPG, PNG, WebP &mdash; workplace photos, site images

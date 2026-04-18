@@ -20,6 +20,7 @@ import java.io.IOException;
 @Controller
 public class ViewController {
 
+
     private final RiskManagerService riskManagerService;
     private final FileStorageService fileStorageService;
 
