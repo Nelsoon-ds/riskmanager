@@ -3,8 +3,6 @@ package com.nelson.riskmanager.controller;
 import com.nelson.riskmanager.model.RiskAssessment;
 import com.nelson.riskmanager.service.FileStorageService;
 import com.nelson.riskmanager.service.RiskManagerService;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +27,7 @@ public class ViewController {
         this.fileStorageService = fileStorageService;
     }
 
-    @GetMapping("/analyze")
+    @GetMapping("/start")
     public String analysisView() {
         return "analyze";
     }
