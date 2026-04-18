@@ -3,6 +3,7 @@ package com.nelson.riskmanager.controller;
 import com.nelson.riskmanager.model.RiskAssessment;
 import com.nelson.riskmanager.service.FileStorageService;
 import com.nelson.riskmanager.service.RiskManagerService;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,21 +16,29 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+@EnableWebSecurity
 @Controller
 public class ViewController {
 
     private final RiskManagerService riskManagerService;
     private final FileStorageService fileStorageService;
 
-    public ViewController(RiskManagerService riskManagerService, FileStorageService fileStorageService1) {
+    public ViewController(RiskManagerService riskManagerService, FileStorageService fileStorageService) {
         this.riskManagerService = riskManagerService;
-        this.fileStorageService = fileStorageService1;
+        this.fileStorageService = fileStorageService;
     }
 
     @GetMapping("/home")
     public String home() {
         return "analyze";
     }
+
+
+    @GetMapping("/authentication/login")
+    public String login() {
+        return "login";
+    }
+
     @PostMapping("/analyze")
     public String analyze(@RequestParam("file") MultipartFile file, Model model) throws IOException {
         String fileName = fileStorageService.save(file);
