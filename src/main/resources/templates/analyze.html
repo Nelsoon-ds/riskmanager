@@ -418,16 +418,16 @@
                 <div class="image-wrapper" id="imageWrapper">
                     <img th:src="${imageSrc}" alt="Analyzed image" id="mainImage">
 
-                    <th:block th:each="hazard, iter : ${assessment.hazards()}">
+                    <th:block th:each="hazard, iter : ${assessment.getHazards()}">
                         <div class="bbox"
                              th:attr="data-index=${iter.index},
                                       data-color-index=${iter.index},
-                                      data-x1=${hazard.boundingBox()[0]},
-                                      data-y1=${hazard.boundingBox()[1]},
-                                      data-x2=${hazard.boundingBox()[2]},
-                                      data-y2=${hazard.boundingBox()[3]}"
+                                      data-x1=${hazard.getBoundingBox()[0]},
+                                      data-y1=${hazard.getBoundingBox()[1]},
+                                      data-x2=${hazard.getBoundingBox()[2]},
+                                      data-y2=${hazard.getBoundingBox()[3]}"
                              onclick="selectRisk(parseInt(this.dataset.index, 10))">
-                            <span class="bbox-label" th:text="${hazard.name()}">Hazard</span>
+                            <span class="bbox-label" th:text="${hazard.getName()}">Hazard</span>
                         </div>
                     </th:block>
                 </div>
@@ -438,10 +438,10 @@
                 <div class="report-card-header">
                     <h2>Report &mdash; Suggested Next Steps</h2>
                     <span class="severity-badge"
-                          th:classappend="${assessment.overallSeverity()}"
-                          th:text="'Overall: ' + ${assessment.overallSeverity()}">Overall: HIGH</span>
+                          th:classappend="${assessment.overallSeverity}"
+                          th:text="'Overall: ' + ${assessment.overallSeverity}">Overall: HIGH</span>
                 </div>
-                <div class="report-card-body" th:text="${assessment.summary()}">
+                <div class="report-card-body" th:text="${assessment.summary}">
                     Summary and recommended next steps.
                 </div>
             </div>
@@ -453,10 +453,10 @@
             <div class="col-header">
                 <h2>Identified Hazards</h2>
                 <span class="count"
-                      th:text="${#lists.size(assessment.hazards())} + ' found'">0 found</span>
+                      th:text="${#lists.size(assessment.getHazards())} + ' found'">0 found</span>
             </div>
 
-            <th:block th:each="hazard, iter : ${assessment.hazards()}">
+            <th:block th:each="hazard, iter : ${assessment.getHazards()}">
                 <div class="risk-card"
                      th:attr="data-index=${iter.index},
                               data-color-index=${iter.index}"
@@ -464,22 +464,22 @@
 
                     <div class="risk-card-header">
                         <div class="risk-card-dot"></div>
-                        <h3 th:text="${hazard.name()}">Hazard name</h3>
+                        <h3 th:text="${hazard.name}">Hazard name</h3>
                         <span class="severity-badge"
-                              th:classappend="${hazard.severity()}"
-                              th:text="${hazard.severity()}">PRIMARY</span>
+                              th:classappend="${hazard.severity}"
+                              th:text="${hazard.severity}">PRIMARY</span>
                         <span class="risk-card-chevron">&#x25BE;</span>
                     </div>
 
                     <div class="risk-card-body">
                         <div class="risk-card-body-inner">
                             <div class="risk-card-body-content">
-                                <div class="desc" th:text="${hazard.description()}">Description.</div>
+                                <div class="desc" th:text="${hazard.description}">Description.</div>
 
                                 <div class="subsection"
-                                     th:if="${not #lists.isEmpty(hazard.standardReferences())}">
+                                     th:if="${not #lists.isEmpty(hazard.standardReferences)}">
                                     <div class="subsection-title">Referenced Standards</div>
-                                    <th:block th:each="ref : ${hazard.standardReferences()}">
+                                    <th:block th:each="ref : ${hazard.standardReferences}">
                                         <div class="std-ref">
                                             <div class="std-ref-name" th:text="${ref.standardName()}">Standard</div>
                                             <div class="std-ref-section" th:text="${ref.section()}">Section</div>
@@ -489,10 +489,10 @@
                                 </div>
 
                                 <div class="subsection"
-                                     th:if="${not #lists.isEmpty(hazard.recommendations())}">
+                                     th:if="${not #lists.isEmpty(hazard.recommendation)}">
                                     <div class="subsection-title">Recommendations</div>
                                     <ul>
-                                        <li th:each="rec : ${hazard.recommendations()}"
+                                        <li th:each="rec : ${hazard.recommendation}"
                                             th:text="${rec}">Recommendation</li>
                                     </ul>
                                 </div>

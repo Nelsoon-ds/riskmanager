@@ -3,8 +3,6 @@ package com.nelson.riskmanager.controller;
 import com.nelson.riskmanager.service.DocumentIngestionService;
 
 import org.springframework.ai.document.Document;
-import org.springframework.ai.embedding.EmbeddingModel;
-import org.springframework.ai.vectorstore.weaviate.WeaviateVectorStore;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
