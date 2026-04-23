@@ -40,7 +40,6 @@ public class ViewController {
         int height = img.getHeight();
 
         RiskAssessment riskAssessment = riskManagerService.analyzeImage(imagePath, width, height);
-
         model.addAttribute("assessment", riskAssessment);
         model.addAttribute("imageSrc", "/" + fileName);
         return "analyze";
