@@ -18,9 +18,9 @@ public class FileStorageService {
         Files.createDirectories(uploadDir);
     }
 
-    public String save(MultipartFile file) throws IOException {
-        String filename = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-        Files.copy(file.getInputStream(), uploadDir.resolve(filename));
-        return filename;
+    public Path save(MultipartFile file) throws IOException {
+        Path dest = uploadDir.resolve(System.currentTimeMillis() + "_" + file.getOriginalFilename());
+        Files.copy(file.getInputStream(), dest);
+        return dest;
     }
 }

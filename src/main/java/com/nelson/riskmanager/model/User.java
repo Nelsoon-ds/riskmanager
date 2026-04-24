@@ -3,12 +3,12 @@ package com.nelson.riskmanager.model;
 import java.time.LocalDateTime;
 
 public class User {
-    public Long getId() {
-        return id;
+    public int getId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(int id) {
+        this.userId = id;
     }
 
     public String getOauthId() {
@@ -51,7 +51,7 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    private Long id;
+    private int userId;
     private String oauthId;      // the ID from GitHub/Google
     private String provider;     // "github" or "google"
     private String name;

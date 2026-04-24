@@ -17,6 +17,8 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MimeTypeUtils;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,13 +46,14 @@ RiskManagerService(AnthropicChatModel chatModel, DocumentIngestionService servic
 }
 
 
-public Media parseImg(String imgPath) throws IOException {
-    byte[] imageBytes = Files.readAllBytes(Path.of(imgPath));
-    String mimeType = imgPath.endsWith(".png") ? "image/png" : "image/jpeg";
+public Media parseImg(Path imgPath) throws IOException {
+    byte[] imageBytes = Files.readAllBytes(imgPath);
+    String fileName = imgPath.getFileName().toString();
+    String mimeType = fileName.endsWith(".png") ? "image/png" : "image/jpeg";
     var imageResource = new ByteArrayResource(imageBytes) {
         @Override
         public String getFilename() {
-            return Path.of(imgPath).getFileName().toString();
+            return fileName;
         }
     };
 
@@ -60,10 +63,13 @@ public Media parseImg(String imgPath) throws IOException {
     );
 }
 
-public RiskAssessment analyzeImage(String imagePath, int width, int height) throws IOException {
+public RiskAssessment analyzeImage(Path imagePath, int userId) throws IOException {
+    BufferedImage img = ImageIO.read(imagePath.toFile());
+    int width = img.getWidth();
+    int height = img.getHeight();
+
     var imageMedia = parseImg(imagePath);
-    // Step 1: Initial vision analysis — free text is fine here,
-    // we just need enough detail to drive vector search
+    // Step 1: Initial vision analysis
     PromptTemplate initialTemplate = new PromptTemplate(initialPromptResource);
     String initialPrompt = initialTemplate.render(Map.of(
             "width", String.valueOf(width),
@@ -111,10 +117,10 @@ public RiskAssessment analyzeImage(String imagePath, int width, int height) thro
     );
     
     System.out.println("RAW RESPONSE: " + augmentedResponse.getResult());
-    String rawText = augmentedResponse.getResult().getOutput().getText();
+    String rawText = Objects.requireNonNull(augmentedResponse.getResult()).getOutput().getText();
     rawText = rawText.replaceAll("(?s)^```json\\s*", "").replaceAll("(?s)\\s*```$", "");
     RiskAssessment riskAssessment = converter.convert(rawText);
-    riskManagerRepository.save(riskAssessment);
+    riskManagerRepository.save(riskAssessment, userId);
 
 
     return riskAssessment;

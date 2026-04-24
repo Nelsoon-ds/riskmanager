@@ -157,7 +157,10 @@ body {
 .logout-btn:hover {
     border-color: var(--border-hi);
     color: var(--text);
+
 }
+
+.submit-btn {background-color: #04AA6D;}
 
 /* ── Site footer ────────────────────────────────────── */
 .site-footer {

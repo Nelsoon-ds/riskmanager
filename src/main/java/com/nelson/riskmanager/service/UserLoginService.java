@@ -2,6 +2,7 @@ package com.nelson.riskmanager.service;
 
 import com.nelson.riskmanager.model.User;
 import com.nelson.riskmanager.repository.RiskManagerRepository;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
 import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
@@ -17,6 +18,29 @@ public class UserLoginService extends DefaultOAuth2UserService {
 
     public UserLoginService(RiskManagerRepository userRepository) {
         this.userRepository = userRepository;
+    }
+
+    public User saveOrGetUser(OAuth2AuthenticationToken token) {
+        String provider = token.getAuthorizedClientRegistrationId();
+        OAuth2User oAuth2User = token.getPrincipal();
+
+        String oauthId = oAuth2User.getAttribute("sub") != null
+                ? oAuth2User.getAttribute("sub")                        // Google
+                : String.valueOf(oAuth2User.getAttribute("id"));        // GitHub (id is Integer)
+
+        String name = oAuth2User.getAttribute("name");
+        String email = oAuth2User.getAttribute("email");
+
+        return userRepository.findByOauthIdAndProvider(oauthId, provider)
+                .orElseGet(() -> {
+                    User newUser = new User();
+                    newUser.setOauthId(oauthId);
+                    newUser.setProvider(provider);
+                    newUser.setName(name);
+                    newUser.setEmail(email);
+                    newUser.setCreatedAt(LocalDateTime.now());
+                    return userRepository.saveUser(newUser);
+                });
     }
 
     @Override
@@ -37,7 +61,9 @@ public class UserLoginService extends DefaultOAuth2UserService {
                     newUser.setName(name);
                     newUser.setEmail(email);
                     newUser.setCreatedAt(LocalDateTime.now());
-                    return userRepository.saveUser(newUser);
+                    User savedUser = userRepository.saveUser(newUser);
+                     return savedUser;
+
                 });
 
 

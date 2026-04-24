@@ -34,6 +34,8 @@ public class RiskManagerRepository {
     }
 
 
+
+
     public RiskAssessment loadReport(OAuth2User oauthUser) {
         String oauthId = oauthUser.getName();
         jdbcClient.sql("SELECT * FROM users WHERE oauth_id = :oauthId and provider = :provider");
@@ -51,13 +53,14 @@ public class RiskManagerRepository {
 
     }
 
-    public void save(RiskAssessment riskAssessment) {
+    public void save(RiskAssessment riskAssessment, int userId) {
+
         // Use a keyholder to get DB made keys
         KeyHolder keyHolder = new GeneratedKeyHolder();
         // Prepare the data objects
         List<Hazard> hazards = riskAssessment.getHazards();
        // SQL inserts
-        String RiskAssessmentSQL = "insert into RiskAssessment (overall_severity, summary) VALUES (?, ?)";
+        String RiskAssessmentSQL = "insert into RiskAssessment (user_id, overall_severity, summary) VALUES (?, ?, ?)";
         String HazardSQL = "insert into Hazard (name, severity, description, bounding_box, assessment_id) VALUES (?, ?, ?,?, ?)";
         String RecommendationSQL = "insert into Recommendation (rec_description, hazard_id) values(?,?)";
         String StandardReferenceSQL = "insert into StandardReference (section, name, relevance, hazard_id) VALUES (?, ?, ?, ?)";
@@ -65,8 +68,9 @@ public class RiskManagerRepository {
 
         jdbcTemplate.update( con -> {
             PreparedStatement ps = con.prepareStatement(RiskAssessmentSQL, new String[]{"assessment_id"});
-            ps.setString(1, riskAssessment.getOverallSeverity());
-            ps.setString(2, riskAssessment.getSummary());
+            ps.setInt(1, userId);
+            ps.setString(2, riskAssessment.getOverallSeverity());
+            ps.setString(3, riskAssessment.getSummary());
             return ps;
         }, keyHolder);
         int riskAssessmentId = Objects.requireNonNull(keyHolder.getKey()).intValue();

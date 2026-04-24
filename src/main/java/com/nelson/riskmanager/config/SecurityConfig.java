@@ -1,9 +1,9 @@
 package com.nelson.riskmanager.config;
 
+import com.nelson.riskmanager.oAuth.OAuthSuccessHandler;
 import com.nelson.riskmanager.service.UserLoginService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -13,9 +13,11 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     private final UserLoginService userLoginService;
+    private final OAuthSuccessHandler oAuthSuccessHandler;
 
-    public SecurityConfig(UserLoginService userLoginService) {
+    public SecurityConfig(UserLoginService userLoginService, OAuthSuccessHandler oAuthSuccessHandler) {
         this.userLoginService = userLoginService;
+        this.oAuthSuccessHandler = oAuthSuccessHandler;
     }
 
 
@@ -28,13 +30,15 @@ public class SecurityConfig {
                             .requestMatchers("/", "/login").permitAll();
                             auth.anyRequest().authenticated();
                 })
+                .logout((logout) -> logout.logoutUrl("/"))
                 .oauth2Login(oauth -> oauth
+                        .successHandler(oAuthSuccessHandler)
+                        .loginPage("/login")
+
                         .userInfoEndpoint(userInfo -> userInfo
                                 .userService(userLoginService)
                         )
-                        .defaultSuccessUrl("/analyze", true))
-                .logout((logout) -> logout.logoutUrl("/"))
-                .formLogin(Customizer.withDefaults())
+                )
                 .build();
     }
 
