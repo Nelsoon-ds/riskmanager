@@ -4,12 +4,12 @@ services:
     - --host
     - 0.0.0.0
     - --port
-    - '8080'
+    - '8081'
     - --scheme
     - http
     image: cr.weaviate.io/semitechnologies/weaviate:1.36.6
     ports:
-    - 8080:8080
+    - 8081:8081
     - 50051:50051
     volumes:
     - weaviate_data:/var/lib/weaviate

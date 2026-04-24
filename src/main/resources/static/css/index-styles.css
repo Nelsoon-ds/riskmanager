@@ -1,0 +1,189 @@
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --bg: #0c0c0f;
+    --surface: #141419;
+    --border: #26262e;
+    --border-focus: #4a4a5a;
+    --text: #e8e6e1;
+    --text-dim: #7a7880;
+    --accent: #c8f56e;
+    --accent-dim: #a3c95a;
+    --radius: 12px;
+}
+
+body {
+    font-family: 'DM Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        radial-gradient(ellipse at 30% 30%, rgba(200, 245, 110, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, rgba(200, 245, 110, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    z-index: 1;
+    animation: fadeUp 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Hero --- */
+.hero {
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(200, 245, 110, 0.3);
+    background: rgba(200, 245, 110, 0.06);
+    padding: 0.25em 0.75em;
+    border-radius: 99px;
+    margin-bottom: 1.25rem;
+}
+
+h1 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 3.6rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+}
+
+h1 span {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.tagline {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.75;
+    max-width: 380px;
+    margin: 0 auto 2rem;
+}
+
+/* --- Features --- */
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: left;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--text);
+}
+
+.feature-icon {
+    color: var(--accent);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+}
+
+/* --- Auth Card --- */
+.auth-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.auth-label {
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.25rem;
+}
+
+.oauth-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.8rem 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-focus);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.oauth-btn:hover {
+    transform: translateY(-1px);
+    border-color: var(--accent);
+}
+
+.oauth-btn.google {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.oauth-btn.github {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--text-dim);
+    opacity: 0.4;
+}

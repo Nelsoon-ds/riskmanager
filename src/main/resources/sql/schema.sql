@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT exists RiskLensDB CHARACTER SET utf8;
 
- #USE RiskLensDB;
+USE RiskLensDB;
 
 
 CREATE TABLE RiskAssessment (
@@ -37,6 +37,15 @@ CREATE TABLE Recommendation (
                                 hazard_id smallint,
                                 primary key (rec_id),
                                 foreign key (hazard_id) references Hazard(hazard_id)
+);
+CREATE TABLE if not exists users (
+                       user_id int auto_increment primary key,
+                       oauth_id varchar(255) not null ,
+                       provider varchar(100) not null,
+                       name varchar(255),
+                       email varchar(255),
+                       created_at DATETIME not null,
+                       unique key uq_oauth (oauth_id, provider)
 );
 
 # insert into RiskAssessment (overall_severity, summary, hazard_id) VALUES ()

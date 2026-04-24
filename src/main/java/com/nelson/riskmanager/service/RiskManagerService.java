@@ -75,6 +75,8 @@ public RiskAssessment analyzeImage(String imagePath, int width, int height) thro
             .media(imageMedia)
             .build();
 
+
+
     ChatResponse initialResponse = chatModel.call(new Prompt(initialMessage));
     String analysisText = Objects.requireNonNull(initialResponse.getResult()).getOutput().getText();
 
