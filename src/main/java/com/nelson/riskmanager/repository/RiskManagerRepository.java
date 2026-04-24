@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,15 @@ public class RiskManagerRepository {
     public RiskManagerRepository(JdbcTemplate jdbcTemplate, JdbcClient jdbcClient) {
         this.jdbcTemplate = jdbcTemplate;
         this.jdbcClient = jdbcClient;
+    }
+
+
+    public RiskAssessment loadReport(OAuth2User oauthUser) {
+        String oauthId = oauthUser.getName();
+        jdbcClient.sql("SELECT * FROM users WHERE oauth_id = :oauthId and provider = :provider");
+
+        RiskAssessment riskData = new RiskAssessment();
+        return riskData;
     }
 
     public Optional<User> findByOauthIdAndProvider(String oauthId, String provider) {

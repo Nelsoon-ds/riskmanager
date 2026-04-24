@@ -1,0 +1,171 @@
+/* ── Design tokens ───────────────────────────────────── */
+:root {
+    --bg:          #0c0c0f;
+    --surface:     #141419;
+    --border:      #26262e;
+    --border-hi:   #3a3a46;
+    --text:        #e8e6e1;
+    --text-dim:    #7a7880;
+    --text-mute:   #4e4c56;
+    --accent:      #c8f56e;
+    --accent-dim:  #a3c95a;
+    --accent-bg:   rgba(200,245,110,0.08);
+    --danger:      #f56e6e;
+    --font:        'DM Mono', monospace;
+    --radius:      10px;
+    --radius-sm:   6px;
+    --header-h:    54px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Site header ────────────────────────────────────── */
+.site-header {
+    height: var(--header-h);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0;
+}
+
+.site-header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Brand */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    color: var(--text);
+    flex-shrink: 0;
+}
+
+.header-logo {
+    width: 26px;
+    height: 26px;
+    background: var(--accent);
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 12px;
+    color: #0c0c0f;
+    flex-shrink: 0;
+}
+
+.header-brand-name {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+/* Nav */
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-left: 16px;
+}
+
+.nav-link {
+    padding: 5px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color .15s, background .15s;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    background: var(--surface);
+}
+
+.nav-link.active {
+    color: var(--accent);
+    background: var(--accent-bg);
+}
+
+/* User area */
+.header-user {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-initials {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border-hi);
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-size: 13px;
+    color: var(--text-dim);
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 5px 12px;
+    font-family: var(--font);
+    font-size: 12px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: border-color .15s, color .15s;
+}
+
+.logout-btn:hover {
+    border-color: var(--border-hi);
+    color: var(--text);
+}
+
+/* ── Site footer ────────────────────────────────────── */
+.site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-mute);
+    flex-shrink: 0;
+}

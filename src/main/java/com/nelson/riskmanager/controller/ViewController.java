@@ -37,16 +37,21 @@ public class ViewController {
     }
 
     @GetMapping("/home")
-    public String home() {
+    public String home(@AuthenticationPrincipal OAuth2User principal, Model model) {
+        addUserToModel(principal, model, "analyze");
         return "analyze";
     }
 
     @GetMapping("/analyze")
-    public String startPage() {
+    public String startPage(@AuthenticationPrincipal OAuth2User principal, Model model) {
+        addUserToModel(principal, model, "analyze");
         return "analyze";
     }
+
     @PostMapping("/analyze")
-    public String analyze(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+    public String analyze(@RequestParam("file") MultipartFile file, Model model,
+                          @AuthenticationPrincipal OAuth2User principal) throws IOException {
+        addUserToModel(principal, model, "analyze");
 
         // Validate
         if (file.isEmpty()) {
@@ -76,14 +81,21 @@ public class ViewController {
     }
 
 
+    private void addUserToModel(OAuth2User principal, Model model, String currentPage) {
+        if (principal != null) {
+            model.addAttribute("userName", principal.getAttribute("name"));
+            model.addAttribute("userEmail", principal.getAttribute("email"));
+        }
+        model.addAttribute("currentPage", currentPage);
+    }
+
     @GetMapping("/admin")
     public String admin(@AuthenticationPrincipal OAuth2User principal, Model model) {
-        String userName = principal.getAttribute("name");
-        String userEmail = principal.getAttribute("email");
-        model.addAttribute("userName", userName);
-        model.addAttribute("userEmail", userEmail);
+        addUserToModel(principal, model, "admin");
         return "admin";
     }
+
+
 
 
 }

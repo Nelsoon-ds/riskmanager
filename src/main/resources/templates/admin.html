@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAG Admin</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/shared.css}">
     <link rel="stylesheet" th:href="@{/css/admin-styles.css}">
 </head>
 <body>
 
+<div th:replace="~{fragments/header :: header}"></div>
+
 <div class="container">
-    <header>
-        <h1>RAG <span>Admin</span></h1>
-        <p class="subtitle">Ingest · Search · Inspect</p>
-        <p>Welcome </p>
-        <p th:text="${userName}" class="bold"
-        ></p>
-        <p th:text="${userEmail}" class="bold"
-        ></p>
-    </header>
 
     <!-- Ingest Card -->
     <div class="card">
@@ -83,8 +77,9 @@
         <div class="store-objects" id="storeObjects"></div>
     </div>
 
-    <footer>RiskLens RAG Admin Panel</footer>
 </div>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
 
 <script th:src="@{/javascript/admin-code.js}"></script>
 </body>

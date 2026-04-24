@@ -33,6 +33,7 @@ public class SecurityConfig {
                                 .userService(userLoginService)
                         )
                         .defaultSuccessUrl("/analyze", true))
+                .logout((logout) -> logout.logoutUrl("/"))
                 .formLogin(Customizer.withDefaults())
                 .build();
     }

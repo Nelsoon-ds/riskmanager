@@ -19,9 +19,6 @@ body {
     background: var(--bg);
     color: var(--text);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
     position: relative;
     overflow-x: hidden;
 }
@@ -43,6 +40,8 @@ body::before {
 .container {
     width: 100%;
     max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem;
     position: relative;
     z-index: 1;
     animation: fadeUp 0.6s ease-out;
@@ -51,11 +50,6 @@ body::before {
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Header --- */
-header {
-    margin-bottom: 2.5rem;
 }
 
 h1 {
@@ -432,15 +426,6 @@ textarea::placeholder {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 0.65rem;
-    color: var(--text-dim);
-    opacity: 0.5;
 }
 
 /* --- Empty State --- */
