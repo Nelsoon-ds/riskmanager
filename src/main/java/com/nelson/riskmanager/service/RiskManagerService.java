@@ -1,6 +1,7 @@
 package com.nelson.riskmanager.service;
 
 import com.nelson.riskmanager.model.RiskAssessment;
+import com.nelson.riskmanager.repository.RiskManagerRepository;
 import org.springframework.ai.anthropic.AnthropicChatModel;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
@@ -29,15 +30,17 @@ public class RiskManagerService {
 
     private final AnthropicChatModel chatModel;
     private final DocumentIngestionService service;
+    private final RiskManagerRepository riskManagerRepository;
 
     @Value("classpath:prompts/augmented-analysis.st")
     private Resource augmentedPromptResource;
     @Value("classpath:prompts/initial-analysis.st")
     private Resource initialPromptResource;
 
-RiskManagerService(AnthropicChatModel chatModel, DocumentIngestionService service) {
+RiskManagerService(AnthropicChatModel chatModel, DocumentIngestionService service, RiskManagerRepository riskManagerRepository) {
     this.chatModel = chatModel;
     this.service = service;
+    this.riskManagerRepository = riskManagerRepository;
 }
 
 
@@ -108,7 +111,11 @@ public RiskAssessment analyzeImage(String imagePath, int width, int height) thro
     System.out.println("RAW RESPONSE: " + augmentedResponse.getResult());
     String rawText = augmentedResponse.getResult().getOutput().getText();
     rawText = rawText.replaceAll("(?s)^```json\\s*", "").replaceAll("(?s)\\s*```$", "");
-    return converter.convert(rawText);
+    RiskAssessment riskAssessment = converter.convert(rawText);
+    riskManagerRepository.save(riskAssessment);
+
+
+    return riskAssessment;
 }
 }
 

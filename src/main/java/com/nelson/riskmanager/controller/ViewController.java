@@ -49,6 +49,7 @@ public class ViewController {
 
         try {
             RiskAssessment riskAssessment = riskManagerService.analyzeImage(imagePath, width, height);
+
             model.addAttribute("assessment", riskAssessment);
             model.addAttribute("imageSrc", "/" + fileName);
         } catch (Exception e) {
