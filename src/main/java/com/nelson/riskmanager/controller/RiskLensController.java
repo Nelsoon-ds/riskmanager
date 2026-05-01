@@ -1,10 +1,11 @@
 package com.nelson.riskmanager.controller;
 
+import com.google.api.Http;
 import com.nelson.riskmanager.model.RiskAssessment;
-import com.nelson.riskmanager.model.User;
 import com.nelson.riskmanager.service.FileStorageService;
 import com.nelson.riskmanager.service.RiskManagerService;
 import com.nelson.riskmanager.service.UserLoginService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -23,13 +24,13 @@ import java.nio.file.Path;
 import java.util.List;
 
 @Controller
-public class ViewController {
+public class RiskLensController {
 
     private final RiskManagerService riskManagerService;
     private final FileStorageService fileStorageService;
     private final UserLoginService userLoginService;
 
-    public ViewController(RiskManagerService riskManagerService, FileStorageService fileStorageService1, UserLoginService userLoginService) {
+    public RiskLensController(RiskManagerService riskManagerService, FileStorageService fileStorageService1, UserLoginService userLoginService) {
         this.riskManagerService = riskManagerService;
         this.fileStorageService = fileStorageService1;
         this.userLoginService = userLoginService;
@@ -40,8 +41,32 @@ public class ViewController {
         return "login";
     }
 
+    @PostMapping("/logout")
+    public String logout() {
+        return "redirect:/login";
+    }
+
+
+    /* Dummy implementation for now.  */
+    @GetMapping("/reports/{id}")
+    public String viewReport(Model model, HttpSession session) {
+        model.addAttribute("riskAssessment", session.getAttribute("userID"));
+        return "report-view";
+    }
+
+    /* Dummy implementation for now.  */
+    @GetMapping("/reports")
+    public String allReports(Model model, HttpSession session) {
+        model.addAttribute("riskAssessment", session.getAttribute("userID"));
+        return "view-report";
+    }
+
+
+
+
     @GetMapping("/home")
-    public String home(@AuthenticationPrincipal OAuth2User principal, Model model) {
+    public String home(@AuthenticationPrincipal OAuth2User principal, Model model, HttpSession session) {
+        session.setAttribute("userID", principal.getAttribute("id")); // Add the ID of the user so we can use it later
         addUserToModel(principal, model, "analyze");
         return "analyze";
     }
@@ -89,6 +114,11 @@ public class ViewController {
         if (principal != null) {
             model.addAttribute("userName", principal.getAttribute("name"));
             model.addAttribute("userEmail", principal.getAttribute("email"));
+
+            String avatar = principal.getAttribute("picture") != null
+                    ? principal.getAttribute("picture") // google
+                    : principal.getAttribute("avatar_url");
+            model.addAttribute("userAvatar", avatar);
         }
         model.addAttribute("currentPage", currentPage);
     }

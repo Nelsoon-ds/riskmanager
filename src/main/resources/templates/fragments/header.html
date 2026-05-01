@@ -22,7 +22,11 @@
 
         <div class="header-user">
             <div class="user-chip">
-                <span class="user-initials"
+                <img th:if="${userAvatar != null}"
+                     th:src="${userAvatar}"
+                     alt="avatar"
+                     style="width:28px;height:28px;border-radius:50%;object-fit:cover;">
+                <span th:unless="${userAvatar != null}" class="user-initials"
                       th:text="${userName != null ? userName.substring(0, 1).toUpperCase() : '?'}">U</span>
                 <span class="user-name" th:text="${userName != null ? userName : 'User'}">User</span>
             </div>

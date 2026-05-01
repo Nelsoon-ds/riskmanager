@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-public class RiskManagerController {
+public class WeaviateController {
 
     private final DocumentIngestionService documentIngestionService;
 
 
-    public RiskManagerController(DocumentIngestionService documentIngestionService) {
+    public WeaviateController(DocumentIngestionService documentIngestionService) {
         this.documentIngestionService = documentIngestionService;
     }
 

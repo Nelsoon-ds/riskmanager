@@ -3,6 +3,42 @@ package com.nelson.riskmanager.model;
 import java.util.List;
 
 public class Hazard {
+    private String name;
+
+    public int getHazardId() {
+        return hazardId;
+    }
+
+    public void setHazardId(int hazardId) {
+        this.hazardId = hazardId;
+    }
+
+    public int getAssessmentId() {
+        return assessmentId;
+    }
+
+    public void setAssessmentId(int assessmentId) {
+        this.assessmentId = assessmentId;
+    }
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+
+    private int hazardId;
+    private int assessmentId;
+    private String priority;        // PRIMARY, SECONDARY, TERTIARY
+    private double[] boundingBox;   // [x_min, y_min, x_max, y_max] normalized 0-1
+    private String description;
+    private List<StandardReference> standardReferences;
+    private List<String> recommendation;
+    
+    
+    
     public String getName() {
         return name;
     }
@@ -12,11 +48,11 @@ public class Hazard {
     }
 
     public String getSeverity() {
-        return severity;
+        return priority;
     }
 
     public void setSeverity(String severity) {
-        this.severity = severity;
+        this.priority = severity;
     }
 
     public double[] getBoundingBox() {
@@ -51,10 +87,5 @@ public class Hazard {
         this.recommendation = recommendation;
     }
 
-    private String name;
-   private String severity;        // PRIMARY, SECONDARY, TERTIARY
-   private double[] boundingBox;   // [x_min, y_min, x_max, y_max] normalized 0-1
-   private String description;
-   private List<StandardReference> standardReferences;
-   private List<String> recommendation;
+
 }

@@ -14,39 +14,41 @@ CREATE TABLE if not exists users (
 
 
 CREATE TABLE RiskAssessment (
-                                assessment_id SMALLINT auto_increment,
+                                assessment_id int auto_increment,
                                 user_id int,
                                 overall_severity varchar(1000),
                                 summary varchar(2000),
+                                created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                                image_path VARCHAR(500) NULL,
                                 primary key (assessment_id),
                                 foreign key (user_id) references Users(user_id)
 );
 
 CREATE TABLE Hazard (
-                        hazard_id SMALLINT auto_increment,
+                        hazard_id int auto_increment,
                         name Varchar(1000),
                         severity Varchar(20),
                         description Varchar(5000),
-                        assessment_id smallint,
+                        assessment_id int,
                         bounding_box TEXT,
                         primary key (hazard_id),
                         foreign key (assessment_id) references RiskAssessment(assessment_id)
 );
 
 CREATE TABLE StandardReference (
-                                   standard_ref_id smallint auto_increment,
+                                   standard_ref_id int auto_increment,
                                    section varchar(2000),
                                    name varchar(500),
                                    relevance varchar(2000),
-                                   hazard_id smallint,
+                                   hazard_id int,
                                    primary key (standard_ref_id),
                                    foreign key (hazard_id) references Hazard(hazard_id)
 );
 
 CREATE TABLE Recommendation (
-                                rec_id smallint auto_increment,
+                                rec_id int auto_increment,
                                 rec_description varchar(2000),
-                                hazard_id smallint,
+                                hazard_id int,
                                 primary key (rec_id),
                                 foreign key (hazard_id) references Hazard(hazard_id)
 );

@@ -2,6 +2,7 @@ package com.nelson.riskmanager.repository;
 
 import com.nelson.riskmanager.model.Hazard;
 import com.nelson.riskmanager.model.RiskAssessment;
+import com.nelson.riskmanager.model.StandardReference;
 import com.nelson.riskmanager.model.User;
 import com.nelson.riskmanager.repository.Mappers.UserRowMapper;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -14,11 +15,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 
 @Transactional
@@ -33,16 +32,6 @@ public class RiskManagerRepository {
         this.jdbcClient = jdbcClient;
     }
 
-
-
-
-    public RiskAssessment loadReport(OAuth2User oauthUser) {
-        String oauthId = oauthUser.getName();
-        jdbcClient.sql("SELECT * FROM users WHERE oauth_id = :oauthId and provider = :provider");
-
-        RiskAssessment riskData = new RiskAssessment();
-        return riskData;
-    }
 
     public Optional<User> findByOauthIdAndProvider(String oauthId, String provider) {
         return jdbcClient.sql("SELECT * FROM users WHERE oauth_id = :oauthId AND provider = :provider")
@@ -60,7 +49,7 @@ public class RiskManagerRepository {
         // Prepare the data objects
         List<Hazard> hazards = riskAssessment.getHazards();
        // SQL inserts
-        String RiskAssessmentSQL = "insert into RiskAssessment (user_id, overall_severity, summary) VALUES (?, ?, ?)";
+        String RiskAssessmentSQL = "insert into RiskAssessment (user_id, overall_severity, summary, image_path) VALUES (?, ?, ?,?)";
         String HazardSQL = "insert into Hazard (name, severity, description, bounding_box, assessment_id) VALUES (?, ?, ?,?, ?)";
         String RecommendationSQL = "insert into Recommendation (rec_description, hazard_id) values(?,?)";
         String StandardReferenceSQL = "insert into StandardReference (section, name, relevance, hazard_id) VALUES (?, ?, ?, ?)";
@@ -71,6 +60,7 @@ public class RiskManagerRepository {
             ps.setInt(1, userId);
             ps.setString(2, riskAssessment.getOverallSeverity());
             ps.setString(3, riskAssessment.getSummary());
+            ps.setString(4, riskAssessment.getImage_path());
             return ps;
         }, keyHolder);
         int riskAssessmentId = Objects.requireNonNull(keyHolder.getKey()).intValue();
@@ -81,7 +71,7 @@ public class RiskManagerRepository {
                 ps.setString(1, item.getName());
                 ps.setString(2, item.getSeverity());
                 ps.setString(3, item.getDescription());
-                ps.setString(4, Arrays.toString(item.getBoundingBox())); // [0.1, 0.2] format
+                ps.setString(4, Arrays.toString(item.getBoundingBox()));
                 ps.setInt(5, riskAssessmentId);
                 return ps;
             }, keyHolder);
@@ -103,7 +93,7 @@ public class RiskManagerRepository {
             jdbcTemplate.batchUpdate(StandardReferenceSQL, new BatchPreparedStatementSetter() {
                         public void setValues(PreparedStatement ps, int i) throws SQLException {
                             ps.setString(1, item.getStandardReferences().get(i).section());
-                            ps.setString(2, item.getStandardReferences().get(i).standardName());
+                            ps.setString(2, item.getStandardReferences().get(i).code());
                             ps.setString(3, item.getStandardReferences().get(i).relevance());
                             ps.setInt(4, hazard_id);
                         } public int getBatchSize() {
